@@ -1,0 +1,84 @@
+﻿	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 22/05/2020 15:35
+  	*/
+
+	@font-face {
+		font-family: "Flaticon";
+		src: url("/assets/website/fonts/quantumultxfree/flaticon.eot");
+		src: url("/assets/website/fonts/quantumultxfree/flaticon.eot") format("embedded-opentype"),
+			url("/assets/website/fonts/quantumultxfree/flaticon.woff2") format("woff2"),
+			url("/assets/website/fonts/quantumultxfree/flaticon.woff") format("woff"),
+			url("/assets/website/fonts/quantumultxfree/flaticon.ttf") format("truetype"),
+			url("/assets/website/fonts/quantumultxfree/flaticon.svg#flaticon") format("svg");
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+		@font-face {
+			font-family: "Flaticon";
+			src: url("/assets/website/fonts/quantumultxfree/flaticon.svg") format("svg");
+		}
+	}
+
+	[class^="flaticon-"]:before,
+	[class*=" flaticon-"]:before,
+	[class^="flaticon-"]:after,
+	[class*=" flaticon-"]:after {
+		font-family: Flaticon;
+		font-size: 20px;
+		font-style: normal;
+	}
+
+	.flaticon-petrol:before {
+		content: "\f100";
+	}
+
+	.flaticon-gas:before {
+		content: "\f101";
+	}
+
+	.flaticon-gas-station:before {
+		content: "\f102";
+	}
+
+	.flaticon-gasoline:before {
+		content: "\f103";
+	}
+
+	.flaticon-gas-1:before {
+		content: "\f104";
+	}
+
+	.flaticon-biofuel:before {
+		content: "\f105";
+	}
+
+	.flaticon-fuel-station:before {
+		content: "\f106";
+	}
+
+	.flaticon-diesel:before {
+		content: "\f107";
+	}
+
+	.flaticon-charging-station:before {
+		content: "\f108";
+	}
+
+	.flaticon-car-wash:before {
+		content: "\f109";
+	}
+
+	.flaticon-fire-extinguisher:before {
+		content: "\f10a";
+	}
+
+	.flaticon-24-hours:before {
+		content: "\f10b";
+	}
+
+	.flaticon-24-hours-1:before {
+		content: "\f10c";
+	}
