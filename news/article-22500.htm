@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-22500.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring Boot启动故障分析神器</title>
+        <meta name="description" content="1、重写端口占用故障分析器  2、自定义故障分析器 目录  			   大家好， 我是指北君。 相信大家在启动 Spring Boot 项目的时候，也遇到过由于各种各样的原因而启动失败的情况吧，显示出" />
+        <link rel="icon" href="__ADDON__/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">
+                                    <span>QuantumultX Free</span>
+                                </a>
+                                                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="#">关于</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">联系</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>Spring Boot启动故障分析神器</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                      				  				  				  			 <div id="log-box">  				<div id="catalog"><ul id="catalog-ul"> <li><i class="be be-arrowright"></i> <a href="#title-0" title="1、重写端口占用故障分析器">1、重写端口占用故障分析器</a></li> <li><i class="be be-arrowright"></i> <a href="#title-1" title="2、自定义故障分析器">2、自定义故障分析器</a></li> </ul><span class="log-zd"><span class="log-close"><a title="隐藏目录"><i class="be be-cross"></i><strong>目录</strong></a></span></span></div>  			</div> <div id="content_views" class="htmledit_views"> <div id="js_content"> <p>大家好， 我是指北君。</p> <p>相信大家在启动 Spring Boot 项目的时候，也遇到过由于各种各样的原因而启动失败的情况吧，显示出一大堆的错误信息，比如端口占用时会打印如下异常：</p> <pre class="has"><code class="language-go">*************************** APPLICATION&nbsp;FAILED&nbsp;TO&nbsp;START *************************** Description: Embedded&nbsp;servlet&nbsp;container&nbsp;failed&nbsp;to&nbsp;start.&nbsp;Port&nbsp;8080&nbsp;was&nbsp;already&nbsp;in&nbsp;use. Action: Identify&nbsp;and&nbsp;stop&nbsp;the&nbsp;process&nbsp;that's&nbsp;listening&nbsp;on&nbsp;port&nbsp;8080&nbsp;or&nbsp;configure&nbsp;this&nbsp;application&nbsp;to&nbsp;listen&nbsp;on&nbsp;another&nbsp;port. </code></pre> <p>相信大家应该很熟悉吧，多少遇到过这种情况吧。</p> <p>错误信息大家都能看懂，但是不太友好。今天指北君就来带大家看看 Spring Boot 是怎么实现这样一个异常错误信息输出的呢？给大家分享一个 Spring Boot 启动失败的简单易懂的玩法，能够让大家轻而易举的看出问题所在之处。</p> <h3>FailureAnalyzer 介绍</h3> <p>通过端口重复绑定的异常信息的输出，指北君找到了具体输出的类 PortInUseFailureAnalyzer 。</p> <pre class="has"><code class="language-go">class&nbsp;PortInUseFailureAnalyzer&nbsp;extends&nbsp;AbstractFailureAnalyzer&lt;PortInUseException&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;FailureAnalysis&nbsp;analyze(Throwable&nbsp;rootFailure,&nbsp;PortInUseException&nbsp;cause)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;FailureAnalysis("Web&nbsp;server&nbsp;failed&nbsp;to&nbsp;start.&nbsp;Port&nbsp;"&nbsp;+&nbsp;cause.getPort()&nbsp;+&nbsp;"&nbsp;was&nbsp;already&nbsp;in&nbsp;use.", &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"Identify&nbsp;and&nbsp;stop&nbsp;the&nbsp;process&nbsp;that's&nbsp;listening&nbsp;on&nbsp;port&nbsp;"&nbsp;+&nbsp;cause.getPort()&nbsp;+&nbsp;"&nbsp;or&nbsp;configure&nbsp;this&nbsp;" &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;+&nbsp;"application&nbsp;to&nbsp;listen&nbsp;on&nbsp;another&nbsp;port.", &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cause); &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <p>PortInUseFailureAnalyzer 继承了 AbstractFailureAnalyzer 类。而且可以看出该类是针对 PortInUseException 异常的分析。</p> <p> <img decoding="async" src="http://img.555519.xyz/uploads/20221229/9c90b62dbf64ac28c03e7d27cfab4c51.jpg" alt="Spring Boot启动故障分析神器"/><figcaption>   spring boot failure1<br />  </figcaption><p>我们来看看 Spring Boot 提供的 FailureAnalyzer 接口，只定义了 一个annlyze 接口。好像和 PortInUseFailureAnalyer 中的 analyze 方法不太一样，怎么回事呢？</p> <pre class="has"><code class="language-go">@FunctionalInterface public&nbsp;interface&nbsp;FailureAnalyzer&nbsp;{ &nbsp;&nbsp;&nbsp;FailureAnalysis&nbsp;analyze(Throwable&nbsp;failure); } </code></pre> <p>相信大家也很容易就能想到， AbstractFailureAnalyzer 对 FailureAnalyzer 进行了封装处理，使得其他个性化的错误可以自由发挥，能够暴露出更多的错误信息。</p> <pre class="has"><code class="language-go">public&nbsp;abstract&nbsp;class&nbsp;AbstractFailureAnalyzer&lt;T&nbsp;extends&nbsp;Throwable&gt;&nbsp;implements&nbsp;FailureAnalyzer&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;FailureAnalysis&nbsp;analyze(Throwable&nbsp;failure)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;T&nbsp;cause&nbsp;=&nbsp;findCause(failure,&nbsp;getCauseType()); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(cause&nbsp;!=&nbsp;null)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;analyze(failure,&nbsp;cause); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null; &nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;abstract&nbsp;FailureAnalysis&nbsp;analyze(Throwable&nbsp;rootFailure,&nbsp;T&nbsp;cause); &nbsp;&nbsp;&nbsp;&nbsp;@SuppressWarnings("unchecked") &nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;Class&lt;?&nbsp;extends&nbsp;T&gt;&nbsp;getCauseType()&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(Class&lt;?&nbsp;extends&nbsp;T&gt;)&nbsp;ResolvableType.forClass(AbstractFailureAnalyzer.class,&nbsp;getClass()).resolveGeneric(); &nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;@SuppressWarnings("unchecked") &nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;final&nbsp;&lt;E&nbsp;extends&nbsp;Throwable&gt;&nbsp;E&nbsp;findCause(Throwable&nbsp;failure,&nbsp;Class&lt;E&gt;&nbsp;type)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while&nbsp;(failure&nbsp;!=&nbsp;null)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(type.isInstance(failure))&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;(E)&nbsp;failure; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;failure&nbsp;=&nbsp;failure.getCause(); &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;null; &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <p>这个时候，我们是不是该想到，Spring Boot 是不是提供了很多这样的故障分析器呢？答案是肯定的，Spring Boot 提供了一系列各种不同类型的故障分析器来方便我们开发者快速定位到错误的原因。如下图所示，Spring Boot 默认提供了14种故障分析器。</p> <p style="text-align: center"><img decoding="async" src="http://img.555519.xyz/uploads/20221229/1fa236c99745855a7c64f6bf07e1de7b.jpg" alt="Spring Boot启动故障分析神器"/></p><figcaption></figcaption><p>这个时候我们又想了，那他又是怎么注册这些分析器到Spring Boot 项目的呢？我们已经知道 Spring Boot 大部分都是通过约定配置来实现的，我们就先找一下，有没有什么配置文件做了这个事情。通过指北君的一顿搜索操作，终于找到了。Spring Boot 内置注册的所有故障分析器在这个文件里面：</p> <pre class="has"><code class="language-go">/org/springframework/boot/spring-boot/2.5.0.RELEASE/spring-boot-2.5.0.RELEASE-sources.jar!/META-INF/spring.factories </code></pre> <p>注册的所有故障分析器列表：</p> <pre class="has"><code class="language-go">#&nbsp;Failure&nbsp;Analyzers org.springframework.boot.diagnostics.FailureAnalyzer=\ org.springframework.boot.context.config.ConfigDataNotFoundFailureAnalyzer,\ org.springframework.boot.context.properties.IncompatibleConfigurationFailureAnalyzer,\ org.springframework.boot.context.properties.NotConstructorBoundInjectionFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.BeanCurrentlyInCreationFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.BeanDefinitionOverrideFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.BeanNotOfRequiredTypeFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.BindFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.BindValidationFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.UnboundConfigurationPropertyFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.ConnectorStartFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.NoSuchMethodFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.NoUniqueBeanDefinitionFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.PortInUseFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.ValidationExceptionFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyNameFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.InvalidConfigurationPropertyValueFailureAnalyzer,\ org.springframework.boot.diagnostics.analyzer.PatternParseFailureAnalyzer,\ org.springframework.boot.liquibase.LiquibaseChangelogMissingFailureAnalyzer </code></pre> <p>通过上述的一堆分析，想必大家已经清楚，FailureAnalyzer 是怎么回事了吧。接下来指北君就要带领大家一起定义一个FailureAnalzer 玩玩了。</p> <h3>自定义实现 FailureAnalyzer</h3> <p>接下来我们通过举两个例子来看看，故障分析器是怎么实现的。</p> <span class="directory"></span><h4 id="title-0">1、重写端口占用故障分析器</h4> <p>从简单的入手，我们先重写一个 PortInUseFailureAnalyzer 看看，能不能达到我们想要的效果。</p> <p>很简单，创建一个故障分析器继承 AbstractFailureAnalyzer 抽象类即可：</p> <pre class="has"><code class="language-go">public&nbsp;class&nbsp;MyPortInUseFailureAnalyzer&nbsp;extends&nbsp;AbstractFailureAnalyzer&lt;PortInUseException&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;FailureAnalysis&nbsp;analyze(Throwable&nbsp;rootFailure,&nbsp;PortInUseException&nbsp;cause)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;FailureAnalysis("你启动的端口&nbsp;"&nbsp;+&nbsp;cause.getPort()&nbsp;+&nbsp;"&nbsp;被占用", &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"快检查下端口&nbsp;"&nbsp;+&nbsp;cause.getPort()&nbsp;+&nbsp;"&nbsp;被哪个程序占用", &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cause); &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <p>重写 analyze 方法，并返回一个 FailureAnalysis 对象， FailureAnalysis 类的三个主要信息分别是：</p> <pre class="has"><code class="language-go">public&nbsp;FailureAnalysis(String&nbsp;description,&nbsp;String&nbsp;action,&nbsp;Throwable&nbsp;cause)&nbsp;{ &nbsp;&nbsp;&nbsp;this.description&nbsp;=&nbsp;description; &nbsp;&nbsp;&nbsp;this.action&nbsp;=&nbsp;action; &nbsp;&nbsp;&nbsp;this.cause&nbsp;=&nbsp;cause; } </code></pre> <p>即要展示的：可读性的错误描述、建议的检查修复动作、原始异常。</p> <p>然后在项目的 resouces 目录下创建 META-INF/spring.factories 文件，内容添加：</p> <pre class="has"><code class="language-go">org.springframework.boot.diagnostics.FailureAnalyzer=\ &nbsp;&nbsp;com.javanorth.failure.analyzer.sample.MyPortInUseFailureAnalyzer </code></pre> <p>启动输出：</p> <pre class="has"><code class="language-go">*************************** APPLICATION&nbsp;FAILED&nbsp;TO&nbsp;START *************************** Description:  你启动的端口&nbsp;8080&nbsp;被占用  Action:  快检查下端口&nbsp;8080&nbsp;被哪个程序占用 </code></pre> <p>这样重写一下，是不是就感觉清晰很多了。</p> <span class="directory"></span><h4 id="title-1">2、自定义故障分析器</h4> <p>下面我们再来自定义一个全新的故障分析器，让大家能更清楚的认识故障分析器。</p> <p>我们在创建 Bean 的过程中手动抛出一个自定义的异常：</p> <pre class="has"><code class="language-go">public&nbsp;class&nbsp;JavaNorthException&nbsp;extends&nbsp;Exception&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;JavaNorthException(String&nbsp;message)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(message); &nbsp;&nbsp;&nbsp;&nbsp;} }  @Bean public&nbsp;CommandLineRunner&nbsp;commandLineRunner()&nbsp;throws&nbsp;JavaNorthException&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;throw&nbsp;new&nbsp;JavaNorthException("Java&nbsp;North&nbsp;error."); } </code></pre> <p>添加一个故障分析器拦截该异常：</p> <pre class="has"><code class="language-go">public&nbsp;class&nbsp;JavaNorthFailureAnalyzer&nbsp;&nbsp;extends&nbsp;AbstractFailureAnalyzer&lt;JavaNorthException&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;@Override &nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;FailureAnalysis&nbsp;analyze(Throwable&nbsp;rootFailure,&nbsp;JavaNorthException&nbsp;cause)&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;FailureAnalysis("java&nbsp;north&nbsp;error.",&nbsp;"快去检查一下吧",&nbsp;cause); &nbsp;&nbsp;&nbsp;&nbsp;} } </code></pre> <p>添加注册：</p> <pre class="has"><code class="language-go">org.springframework.boot.diagnostics.FailureAnalyzer=\ &nbsp;&nbsp;com.javanorth.failure.analyzer.sample.MyPortInUseFailureAnalyzer,\ &nbsp;&nbsp;com.javanorth.failure.analyzer.sample.JavaNorthFailureAnalyzer </code></pre> <p>启动输出：</p> <pre class="has"><code class="language-go">*************************** APPLICATION&nbsp;FAILED&nbsp;TO&nbsp;START *************************** Description:  java&nbsp;north&nbsp;error.  Action:  快去检查一下吧 </code></pre> <p>自定义一个新的故障分析器，是不是也很简单，和重写端口占用的分析器没什么区别。同样能够更加友好的给出错误信息。</p> <h3>总结</h3> <p>Spring Boot 提供的故障分析器，对我们分析一些错误非常的友好，我们不必为那些一大堆的异常信息一筹莫展。这么好的功能，你还在等什么，还不使用吗？</p> <p>本文的所有示例源代码都已上传到了 Github：</p> <blockquote> <p>https://github.com/javatechnorth/java-north-sample</p> </blockquote> <p>欢迎大家 Star 关注，后续会不断更新。</p> <p>有任何问题可以在公众号后台留言，指北君会第一时间回复大家。欢迎关注公众号【Java技术指北】，第一时间获取更多精彩内容。</p> </div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-22038.htm">猫粮狗粮利润大吗（猫粮狗粮利润大吗）</a></p>
+                                        <p>下一个：<a href="/news/article-22501.htm">我想开宠物店（我想开宠物店怎么申请）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-9-22-node-share-links.htm" title="9月22日→18.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址">9月22日→18.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-1-quantumult-x-node-windows.htm" title="11月1日→21.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月1日→21.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→19.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月14日→19.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-23-node-share.htm" title="11月23日→20.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月23日→20.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-5-free-node-subscribe.htm" title="10月5日→22.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月5日→22.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="11月11日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月11日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-13-free-subscribe-node.htm" title="11月13日→20.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月13日→20.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-17-quantumult-x-node-share.htm" title="11月17日→20.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月17日→20.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-1-quantumult-x-node-share.htm" title="10月1日→19.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月1日→19.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-10-free-high-speed-nodes.htm" title="10月10日→21.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月10日→21.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
