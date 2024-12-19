@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-28063.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Spring AOP打通两个切面之间的通信详解</title>
+        <meta name="description" content="场景描述 在秒杀微服务中，笔者在需要各种校验前端传来的参数后，通过 Redis 加锁限流（切面A）并返回，最后封装订单数据推送到 RabbitMQ 消息队列（切面B）做善后工作。 问题：如何将 切面 " />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">
+                                    <span>QuantumultX Free</span>
+                                </a>
+                                                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="#">关于</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">联系</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>Spring AOP打通两个切面之间的通信详解</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<h3 id="场景描述">场景描述</h3> <p>在秒杀微服务中，笔者在需要各种校验前端传来的参数后，通过 Redis 加锁限流（切面A）并返回，最后封装订单数据推送到 RabbitMQ 消息队列（切面B）做善后工作。</p> <p>问题：如何将 切面 A 的数据传递 给切面B 处理呢？</p> <pre><code class="language-java">/**  * 添加到秒杀流程  *  * @param killId 秒杀商品缓存键 sessionId_skuId  * @param key    随机码 randomCode  * @param num    数量  * @return {@link R}  */ @GetMapping("/kill") public R addToSeckill(         @RequestParam("killId") String killId,         @RequestParam("key") String key,         @RequestParam("num") Integer num) {     // 实现类只是带有两个注解方法，返回 null（因为全部交给切面托管了）     String orderSn = seckillService.kill(killId, key, num);     if (StringUtils.isEmpty(orderSn)) {         return R.error();     }     return R.ok().setData(orderSn); }</code></pre> <h3 id="解决方案">解决方案</h3> <p>通过参数传递数据，通过捕获异常保证业务逻辑（离谱但有用） ????</p> <pre><code class="language-java">// 强制修改参数，通过异常返回正常流程，而通过AOP消息队列处理收尾动作 try {     return pjp.proceed(new Object[]{orderTo, null, null}); } catch (Throwable e) {     return orderSn; }</code></pre> <p>注意事项：</p> <ol> <li> <p>参数一致性：必须伪造和方法签名的<strong>数量相等</strong>的参数 ⇒ 否则线程会抛出异常 I 就返回了，无法执行<code>pjp.proceed</code> 原始方法 ⇒ 无法跳转第二个切面<br /><code>java.lang.IllegalArgumentException: Expecting 3 arguments to proceed, but was passed 1 arguments</code></p> </li> <li> <p>捕获异常不抛出，直接执行正常业务逻辑 ⇒ 否则线程将吞没异常 II<br /><code>cn.miozus.gulimall.common.to.mq.SeckillOrderTo cannot be cast to java.lang.String</code></p> </li> </ol> <p>3.虽然两个切面都返回了<code>orderSn</code> ，实际最终只有切面A传递到了控制层和前端， 切面B的返回值成了摆设。</p> <h3 id="跳转过程">跳转过程</h3> <p>打断点查看两个切面的跳转过程。</p> <p>切面A：准备跳转第二个切面</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/efb74164f89abe7e257ea98171039d08.jpg" alt="Spring AOP打通两个切面之间的通信详解"></p> <p>切面B：发送消息完成</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220510/9845db59d43c7dc2ab69121c99b45333.jpg" alt="Spring AOP打通两个切面之间的通信详解"></p> <p>打印日志，可见场景需求，已经满足了。</p> <pre><code class="language-bash">2022-03-29 17:32:56.521  INFO 7904 --- [io-25000-exec-8] c.m.g.s.aspect.SeckillRabbitMqAspect     : 快速创建订单：发送消息创建完成: 202203291732444881508738921192005634 2022-03-29 17:33:01.526  INFO 7904 --- [io-25000-exec-8] c.m.g.s.controller.SeckillController     : 秒杀创建订单用时：28778 ???? seckill orderSn = 202203291732444881508738921192005634 2022-03-29 17:33:01.527  INFO 7904 --- [nectionFactory5] c.m.g.s.config.RabbitMqSeckillConfig     : ???? 消息已发送, params: correlationData:null,ack:true,cause:null</code></pre> <h3 id="其他方案">其他方案</h3> <p>最简单的办法，不切了，两个切面耦合在一起。注入和调用方法。</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-27593.htm">SpringBoot的Spring Security注销以及权限控制</a></p>
+                                        <p>下一个：<a href="/news/article-28064.htm">动物防疫疫苗与接种的区别是什么呢（动物疫苗是什么意思）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-11-4-latest-quantumult-x-node.htm" title="11月4日→21.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月4日→21.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27133.htm" title="记将一个大型客户端应用项目迁移到 dotnet 6 的经验和决策_在线工具">记将一个大型客户端应用项目迁移到 dotnet 6 的经验和决策_在线工具</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-26-free-subscribe-node.htm" title="9月26日→22M/S|2024年最新免费节点QuantumultX Free订阅链接地址">9月26日→22M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-node-share.htm" title="11月28日→18.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月28日→18.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26221.htm" title="动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）">动物医疗机构的主管部门（动物医疗机构的主管部门是哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-19-free-node-subscribe.htm" title="12月19日→22.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月19日→22.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24809.htm" title="选择排序的java实现">选择排序的java实现</a></li>
+                        <li class="py-2"><a href="/news/article-23406.htm" title="动物防疫疫苗与接种的关系是什么（动物疫苗的重要性）">动物防疫疫苗与接种的关系是什么（动物疫苗的重要性）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-12-quantumult-x-node-github.htm" title="11月12日→21.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月12日→21.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-9-23-free-node-subscribe.htm" title="9月23日→19.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址">9月23日→19.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">31</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">11</span> <a href="/date/2024-09/" title="2024-09 归档">2024-09</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
