@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>YARN基本介绍与HA</title>
         <meta name="description" content="文章目录  YARN基本介绍 ResourceManager（资源管理）   主备切换   NodeManager（节点管理） ApplicationMaster（主应用程序） Container（容" />
-        <link rel="icon" href="__ADDON__/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
     <!-- Bootstrap CSS -->
     <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS-->
@@ -122,7 +122,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#YARN_4" rel="nofollow">YARN基本介绍</a></li> <li><a href="#ResourceManager_12" rel="nofollow">ResourceManager（资源管理）</a></li> <li> <ul> <li><a href="#_17" rel="nofollow">主备切换</a></li> </ul> </li> <li><a href="#NodeManager_31" rel="nofollow">NodeManager（节点管理）</a></li> <li><a href="#ApplicationMaster_32" rel="nofollow">ApplicationMaster（主应用程序）</a></li> <li><a href="#Container_33" rel="nofollow">Container（容器）</a></li> </ul> </div> <hr/> </h1> <p>YARN是Hadoop为了提供计算节点Master（JT）的扩展性，同时为了支持多计算模型和提高资源的细粒度调度而引入的全新一代分布式调度框架。</p> <p>其可以支持MapReduce、Tez、Spark、Storm、Imlala、Open MPI等计算引擎。</p> <p>YARN主要由ResourceManager（RM，资源管理）、NodeManager（NM，节点管理）、ApplicationMaster（AM、主应用程序）、Container（容器）四部分组成。</p> </h1> <p>其中最为核心的是ResourceManager，它作为全局的资源管理，负责整个系统的资源管理和分配，同时接受来自各个节点（NodeManager）的资源汇报信息，并把这些信息按照一定的资源策略分配给各个应用程序（Application Manager），其内部维护了各个应用程序的ApplicationMaster信息、NodeManager信息以及资源使用信息等。</p> <p>YARN设计了一套Active/Standby模式的ResourceManager HA框架，在运行期间会有多个ResourceManager并存，并且其中只有一个ResourceManager处于Active状态，其他则处于Standby状态，当前Active节点无法正常工作时，其余处于Standby状态的节点则会通过竞争产生新的Active节点。</p> <h2><a id="_17" rel="nofollow"></a>主备切换</h2> <ol> <li>创建锁节点<br /> 所有的RM在启动的时候，都会去创建同一个临时节点，只有一个节点能够创建成功。<br /> 创建成功的那个RM就切换为Active状态，没有成功的那些RM则切换为Standby状态。</li> <li>注册Watcher监听<br /> 所有Standby状态的RM都会向节点注册监听，利用临时节点的特性，你能够快速感知到Active状态的Resource的运行状况。</li> <li>主备切换<br /> 当Active的RM出现故障或重启情况，在ZooKeeper创建的临时节点会被删除。此时其他Standby状态的RM都会收到Watcher事件通知，重复步骤1操作。</li> <li>脑裂现象<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时，其依然认为自己还处于Active状态。出现多个Active状态RM，这就是”脑裂“现象。</li> <li>避免脑裂现象<br /> 解决方法是在创建节点的时候携带ACL信息，已防止其他RM对该节点更新。<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时会试图更新节点相关数据，但是此时发现其没有权限更新节点数据，也就是说，RM1发现节点不是不是自己创建的，于是就自动切换为Standby状态，避免出现”脑裂“。</li> </ol> </h1> </h1> </h1> </div> 			                <div class="clearfix"></div>
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <div class="toc"> <h3>文章目录</h3> <ul> <li><a href="#YARN_4" rel="nofollow">YARN基本介绍</a></li> <li><a href="#ResourceManager_12" rel="nofollow">ResourceManager（资源管理）</a></li> <li> <ul> <li><a href="#_17" rel="nofollow">主备切换</a></li> </ul> </li> <li><a href="#NodeManager_31" rel="nofollow">NodeManager（节点管理）</a></li> <li><a href="#ApplicationMaster_32" rel="nofollow">ApplicationMaster（主应用程序）</a></li> <li><a href="#Container_33" rel="nofollow">Container（容器）</a></li> </ul> </div> <hr/> </h1> <p>YARN是Hadoop为了提供计算节点Master（JT）的扩展性，同时为了支持多计算模型和提高资源的细粒度调度而引入的全新一代分布式调度框架。</p> <p>其可以支持MapReduce、Tez、Spark、Storm、Imlala、Open MPI等计算引擎。</p> <p>YARN主要由ResourceManager（RM，资源管理）、NodeManager（NM，节点管理）、ApplicationMaster（AM、主应用程序）、Container（容器）四部分组成。</p> </h1> <p>其中最为核心的是ResourceManager，它作为全局的资源管理，负责整个系统的资源管理和分配，同时接受来自各个节点（NodeManager）的资源汇报信息，并把这些信息按照一定的资源策略分配给各个应用程序（Application Manager），其内部维护了各个应用程序的ApplicationMaster信息、NodeManager信息以及资源使用信息等。</p> <p>YARN设计了一套Active/Standby模式的ResourceManager HA框架，在运行期间会有多个ResourceManager并存，并且其中只有一个ResourceManager处于Active状态，其他则处于Standby状态，当前Active节点无法正常工作时，其余处于Standby状态的节点则会通过竞争产生新的Active节点。</p> <h2><a id="_17" rel="nofollow"></a>主备切换</h2> <ol> <li>创建锁节点<br /> 所有的RM在启动的时候，都会去创建同一个临时节点，只有一个节点能够创建成功。<br /> 创建成功的那个RM就切换为Active状态，没有成功的那些RM则切换为Standby状态。</li> <li>注册Watcher监听<br /> 所有Standby状态的RM都会向节点注册监听，利用临时节点的特性，你能够快速感知到Active状态的Resource的运行状况。</li> <li>主备切换<br /> 当Active的RM出现故障或重启情况，在ZooKeeper创建的临时节点会被删除。此时其他Standby状态的RM都会收到Watcher事件通知，重复步骤1操作。</li> <li>脑裂现象<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时，其依然认为自己还处于Active状态。出现多个Active状态RM，这就是”脑裂“现象。</li> <li>避免脑裂现象<br /> 解决方法是在创建节点的时候携带ACL信息，已防止其他RM对该节点更新。<br /> 当RM1为Active出现”假死“状态，导致RM2为Active。当RM1恢复正常时会试图更新节点相关数据，但是此时发现其没有权限更新节点数据，也就是说，RM1发现节点不是不是自己创建的，于是就自动切换为Standby状态，避免出现”脑裂“。</li> </ol> </h1> </h1> </h1> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-18851.htm">动物医院宣传介绍怎么写（动物医院经营范围怎么写）</a></p>
                                         <p>下一个：<a href="/news/article-19295.htm">动物疫苗价格表图片及价格大全图（动物疫苗多少钱一支）</a></p>
@@ -135,16 +136,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2024-10-2-free-node-subscribe-links.htm" title="10月2日→20.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月2日→20.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-2-free-quantumult-x-node.htm" title="12月2日→22.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月2日→22.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-node-subscribe.htm" title="10月21日→20.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月21日→20.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-18-today-quantumult-x-node.htm" title="10月18日→21.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月18日→21.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-26-today-quantumult-x-node.htm" title="11月26日→20.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月26日→20.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-16-quantumult-x-github.htm" title="11月16日→18.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月16日→18.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-1-quantumult-x-node-share.htm" title="10月1日→19.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月1日→19.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-9-27-node-share.htm" title="9月27日→22.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址">9月27日→22.9M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-27-free-quantumult-x-node.htm" title="11月27日→22.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月27日→22.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-30-today-quantumult-x-node.htm" title="10月30日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月30日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-20-free-node-subscribe.htm" title="11月20日→20.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月20日→20.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-12-free-subscribe-node.htm" title="10月12日→19.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月12日→19.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→19.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月14日→19.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-21-quantumult-x-github.htm" title="11月21日→19.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月21日→19.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-22500.htm" title="Spring Boot启动故障分析神器">Spring Boot启动故障分析神器</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-15-quantumult-x-node-windows.htm" title="11月15日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月15日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19293.htm" title="YARN基本介绍与HA">YARN基本介绍与HA</a></li>
+                        <li class="py-2"><a href="/news/article-25735.htm" title="宠物医院好评评语200字 给宠物医院好评怎么写">宠物医院好评评语200字 给宠物医院好评怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-24809.htm" title="选择排序的java实现">选择排序的java实现</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-13-free-high-speed-nodes.htm" title="10月13日→20.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月13日→20.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -156,7 +157,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
@@ -180,6 +181,15 @@
             <div class="row justify-content-center align-items-center">
                 <div class="col-lg-6 col-md-6 col-sm-12">
                     <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
                         <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
                     </p>
                 </div>
