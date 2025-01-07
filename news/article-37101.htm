@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-37101.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Git回退代码到某次commit</title>
+        <meta name="description" content="前言 工作中，Git的使用越来越频繁。。除了最常用的clone,add,commit,push,pull等命令；还有回退命令reset。这一篇博客就记录一下该回退命令的简单使用。 场景 因为公司开发过" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">
+                                    <span>QuantumultX Free</span>
+                                </a>
+                                                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="#">关于</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">联系</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>Git回退代码到某次commit</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <h3 id="前言"><font color="blue">前言</font></h3> <p>工作中，Git的使用越来越频繁。。除了最常用的<code>clone</code>,<code>add</code>,<code>commit</code>,<code>push</code>,<code>pull</code>等命令；还有回退命令<code>reset</code>。这一篇博客就记录一下该回退命令的简单使用。</p> <h3 id="场景"><font color="blue">场景</font></h3> <p>因为公司开发过程中，处理订单，限时购买等业务时，都是用的阿里云的消息队列MQ实现的。或者是两个系统之间的交互，同步信息，如用户在<code>支付系统A</code>下了一个订单（支付成功），这个时候<code>支付系统A</code>除了处理订单，还有向<code>库存系统B</code>发送一个消息，告知<code>库存系统B</code>要减少下单商品的库存。</p> <p>我本地跑项目的时候，如果不注释掉<code>监听器</code>，测试服上的消息也可能会发送到我本地，导致消息丢失。<br /> 然后~~我就把本地的监听器那一段代码注释掉，方便测试人员在测试服上进行测试。注释掉代码如下图：<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/8ced3aee0a882fbbaef47e91bacb3488.jpg" alt="Git回退代码到某次commit"></p> <p>哈哈~~注释掉后，提交的时候，被我一起提交了！真是尴尬呢！测试人员说出bug了！</p> <p>一看代码提交历史~~消息监听器被我注释掉了。这个锅我背！（笑哭）</p> <h3 id="解决问题"><font color="blue">解决问题</font></h3> <p>哎呀。。。上面说的好像跟这篇文章要说的不太对的上。</p> <p>其实是开发中，我不小心把不该提交的代码提交到了本地，例如<code>TaskListener</code>这个类，改了之后，不能提交，一不小心被我commit到了本地（还没有推送到远程）。</p> <p>有可能已经commit了多次到本地。<br /> 1. 先查看commit日志 执行下面命令</p> <pre class="prettyprint"><code class="hljs rust">git<span class="hljs-keyword">log</span></code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/fc72ff59ece18954f5978e69ca66ab61.jpg" alt="Git回退代码到某次commit"><br /> 2. 回滚、取消之前的提交<br /> 这里我们假设应该回滚到<code>239afed0857cc2e77c17c01014077808619af64d</code>这个版本，及这个版本及之后的commit全部取消。</p> <pre class="prettyprint"><code class="hljs cs">git reset --hard commit_id<span class="hljs-comment">//退到/进到 指定commit的sha码 commit_id:239afed0857cc2e77c17c01014077808619af64d</span></code></pre> <p>3.ok,可以重新提交了</p> <pre class="prettyprint"><code class="hljs livecodeserver">git commit<span class="hljs-operator">a</span>.txt -m<span class="hljs-string">"重新提交"</span><span class="hljs-comment"> // 记得不要提交不想提交的文件哦</span></code></pre> <h3 id="idea-reset"><font color="blue">IDEA RESET</font></h3> <p>也可以直接使用IDEA的<code>Reset Head</code> 功能,先通过<code>git log</code> 得到要回退的<code>commit_id</code>,再进行下面截图的操作。可以先validate一下哦，看通过<code>commit_id</code>能不能找到这一次提交。<br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/62e17b88b200929418fc15503ec8af6a.jpg" alt="Git回退代码到某次commit"><br /><img decoding="async" src="http://img.555519.xyz/uploads3/20220605/a4c02ee402819d1e1e22c8d48c7a77d6.jpg" alt="Git回退代码到某次commit"></p> <h3 id="总结"><font color="blue">总结</font></h3> <p>开发过程中，总是会不小心提交一些不能提交的文件。。如果你开发用的IDEA，可以看看IDEA的这个功能—实用，再也不用担心提交错了。</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-37100.htm">Struts2中拦截器的定义及配置</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-quantumult-x-node.htm" title="12月20日→18.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月20日→18.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-37101.htm" title="Git回退代码到某次commit">Git回退代码到某次commit</a></li>
+                        <li class="py-2"><a href="/news/article-24330.htm" title="宠物粮食品牌起名大全图片及名字视频（宠物粮品牌名称）">宠物粮食品牌起名大全图片及名字视频（宠物粮品牌名称）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-11-free-node-subscribe.htm" title="11月11日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月11日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23873.htm" title="重庆宠物领养贴吧最新消息（重庆宠物之家免费领养）">重庆宠物领养贴吧最新消息（重庆宠物之家免费领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-31-quantumult-x-node-github.htm" title="12月31日→22.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">12月31日→22.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26667.htm" title="重庆狗狗领养（重庆狗狗领养中心）">重庆狗狗领养（重庆狗狗领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-31837.htm" title="如何过滤掉MySQL返回的结果集的行中的重复项？">如何过滤掉MySQL返回的结果集的行中的重复项？</a></li>
+                        <li class="py-2"><a href="/news/article-21129.htm" title="延吉宠颐生动物医院怎么样（延吉宠物店电话）">延吉宠颐生动物医院怎么样（延吉宠物店电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-10-14-free-quantumult-x-node.htm" title="10月14日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月14日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
