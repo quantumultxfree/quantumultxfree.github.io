@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-39057.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>go实践十九 web开发使用模板获取form参数</title>
+        <meta name="description" content="新建一个 testform1.gtpl 文件，内容如下： &lt;!doctype html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta " />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">
+                                    <span>QuantumultX Free</span>
+                                </a>
+                                                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="#">关于</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">联系</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>go实践十九 web开发使用模板获取form参数</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h2>新建一个 testform1.gtpl 文件，内容如下：</h2> <pre class="has"><code class="language-Go">&lt;!doctype html&gt; &lt;html lang="en"&gt; &lt;head&gt;     &lt;meta charset="UTF-8"&gt;     &lt;meta name="viewport"           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"&gt;     &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;     &lt;title&gt;登录&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;form action="/login" method="post"&gt;     用户名：&lt;input type="text" name="username"&gt;     密码：&lt;input type="password" name="password"&gt;     &lt;input type="submit" value="登录"&gt; &lt;/form&gt; &lt;/body&gt; &lt;/html&gt;</code></pre> <h2>新建一个 testform1.go 文件，内容如下：</h2> <pre class="has"><code class="language-Go">package main  import ( 	"fmt" 	"html/template" 	"log" 	"net/http" 	"net/url" 	"strings" )  func sayhelloName(w http.ResponseWriter,r *http.Request)  { 	r.ParseForm() //解析url传递的参数，对于post则解析响应包的主体(request body) 	//注意：如果没有调用 ParseForm方法，下面无法获取表单的数据  	//下面这些信息是输出到服务器端的打印信息 	fmt.Println(r.Form) 	fmt.Println("path",r.URL.Path) 	fmt.Println("scheme",r.URL.Scheme) 	fmt.Println(r.Form["url_long"]) 	for k,v := range r.Form{ 		fmt.Println("key：",k) 		fmt.Println("val：",strings.Join(v,"")) 	}  	//下面这个写入到w 的是输出到客户端的 	fmt.Fprintf(w,"hello testform1.go") }  func login(w http.ResponseWriter,r *http.Request)  { 	fmt.Println("method：",r.Method) //获取请求的方法 	if r.Method == "GET"{ 		t,_ := template.ParseFiles("testform1.gtpl") 		log.Println(t.Execute(w,nil)) 	}else{ 		r.ParseForm()       //解析url传递的参数，对于POST则解析响应包的主体（request body） 		//请求的是登录数据，name执行登录的逻辑判断 		fmt.Println("username：",r.Form["username"]) 		fmt.Println("password：",r.Form["password"])  		//Request本身也提供了FormValue()函数来获取用户提交的参数。 		// 如r.Form["username"]也可写成r.FormValue("username")。 		// 调用r.FormValue时会自动调用r.ParseForm，所以不必提前调用。 		// r.FormValue只会返回同名参数中的第一个，若参数不存在则返回空字符串。 		fmt.Println() 		fmt.Println("FormValue") 		fmt.Println("username：",r.FormValue("username")) 		fmt.Println("password：",r.FormValue("password")) 		fmt.Println("verify_code：",r.FormValue("verify_code"))  		//request.Form是一个url.Values类型，里面存储的是对应的类似key=value的信息，下面展示了可以对form数据进行的一些操作: 		fmt.Println() 		fmt.Println("url.Values") 		v := url.Values{} 		v.Set("name", "Ava") 		v.Add("friend", "Jess") 		v.Add("friend", "Sarah") 		v.Add("friend", "Zoe") 		// v.Encode() == "name=Ava&amp;friend=Jess&amp;friend=Sarah&amp;friend=Zoe" 		fmt.Println(v.Get("name")) 		fmt.Println(v.Get("friend")) 		fmt.Println(v["friend"]) 	}  }  func main() { 	http.HandleFunc("/",sayhelloName) //设置路由 	http.HandleFunc("/login",login) //设置路由 	err := http.ListenAndServe(":6665",nil) //设置监听的端口 	if err != nil{ 		log.Fatal("ListenAndServe：",err) 	} }</code></pre> <h2>运行 testform1.go ，启动服务器&nbsp;：</h2> <pre class="has"><code class="language-Go">[root@izj6c4jirdug8kh3uo6rdez goweb]# go run testform1.go</code></pre> <h2>浏览器运行<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://daily886.com:6665/login"  rel="nofollow">http://域名:6665/login</a>&nbsp; ，输入数据后登录</h2> <h2>服务器端即可看到表单参数：</h2> <pre class="has"><code class="language-Go">method： POST username： [123] password： [4444]  FormValue username： 123 password： 4444 verify_code：   url.Values Ava Jess [Jess Sarah Zoe]</code></pre> <p>参考：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://www.golang123.com/book/9?chapterID=157"  rel="nofollow">https://www.golang123.com/book/9?chapterID=157</a></p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-39056.htm">使用TreeMap在Java中对用户定义的对象进行排序</a></p>
+                                        <p>下一个：<a href="/news/article-39582.htm">动物打疫苗前后要注意什么事项呢（动物接种疫苗前的准备）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-26668.htm" title="广州宠物猫领养中心地址电话是多少（广州市猫狗免费领养市场在哪里）">广州宠物猫领养中心地址电话是多少（广州市猫狗免费领养市场在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share-links.htm" title="1月5日→21.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月5日→21.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-33261.htm" title="那里领养狗狗（哪里去领养狗）">那里领养狗狗（哪里去领养狗）</a></li>
+                        <li class="py-2"><a href="/news/article-21126.htm" title="动物医院所属行业 动物医院所属行业是什么">动物医院所属行业 动物医院所属行业是什么</a></li>
+                        <li class="py-2"><a href="/news/article-25736.htm" title="宠物粮食市场分析论文 宠物粮食市场分析论文范文">宠物粮食市场分析论文 宠物粮食市场分析论文范文</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-20-free-quantumult-x-node.htm" title="12月20日→18.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月20日→18.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-23873.htm" title="重庆宠物领养贴吧最新消息（重庆宠物之家免费领养）">重庆宠物领养贴吧最新消息（重庆宠物之家免费领养）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-1-quantumult-x-node-github.htm" title="12月1日→22.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月1日→22.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-27593.htm" title="SpringBoot的Spring Security注销以及权限控制">SpringBoot的Spring Security注销以及权限控制</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-13-free-subscribe-node.htm" title="1月13日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月13日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">39</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
