@@ -9,6 +9,17 @@
     <title>统一接口返回类的封装Result，超简单易懂适合新手</title>
         <meta name="description" content="统一接口返回类的意义： 基于java的前后端分离项目中，前端获取后端controller层接口返回的JSON格式的数据，并展示出来。通常为了提高代码质量，会将后端返回的数据进行统一的格式处理。 自定义" />
         <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-41540.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="统一接口返回类的封装Result，超简单易懂适合新手" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/31cebab4ba2c81bf44e9e30699cbd3d1.webp" />
+        <meta property="og:release_date" content="2025-01-16T09:12:42" />
+    <meta property="og:updated_time" content="2025-01-16T09:12:42" />
+        <meta property="og:description" content="统一接口返回类的意义： 基于java的前后端分离项目中，前端获取后端controller层接口返回的JSON格式的数据，并展示出来。通常为了提高代码质量，会将后端返回的数据进行统一的格式处理。 自定义" />
+        
     <!-- Bootstrap CSS -->
     <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS-->
@@ -126,6 +137,7 @@
                   				  				  				<div id="content_views" class="htmledit_views"> <p><strong>统一接口返回类的意义：</strong></p> <p>基于java的前后端分离项目中，前端获取后端controller层接口返回的JSON格式的数据，并展示出来。通常为了提高代码质量，会将后端返回的数据进行统一的格式处理。</p> <p>自定义工具类取名为Result</p> <pre><code class="language-java">import lombok.Data; import lombok.NoArgsConstructor; import lombok.experimental.Accessors;  @Data  //getter和setter函数 @AllArgsConstructor //全参构造 @NoArgsConstructor   //无参构造 @Accessors(chain = true)//可以链式操作，默认是false public class Result&lt;T&gt;{     private int code; //状态码      private String message;  //信息      private T data;  //数据 }</code></pre> <p>在controller中接口返回类型定义为Result，添加一个测试接口，查找所有用户。</p> <pre><code class="language-java">    //查找所有用户     @GetMapping("find")     public Result find(){         //userService.findAll() 为查找所有用户所得的结果         return new Result().setCode(200).setData(userService.findAll()).setMessage("查找成功");     }</code></pre> <p>接着在postman中输入</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=http://localhost:8080/find"  rel="nofollow">http://localhost:8080/find</a></p> <p>得到返回结果如图：</p> <p><img fetchpriority="high" decoding="async" alt="" height="751" src="http://img.555519.xyz/uploads3/20220904/f6052fec00d4dbd3dbe591e37f93e72e.jpg"></p> <p><strong>以上仅仅为测试，以此引申到其他接口的编写。</strong></p> <p><span style="color:#fe2c24;"><strong>&nbsp;如果需要实战项目或springboot技术栈的整合，欢迎评论私信</strong></span></p> </div> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-41539.htm">定时器中 this 指向修改实现方法和原理讲解</a></p>
+                                        <p>下一个：<a href="/news/article-42038.htm">动物医院名字大全集最新版英文（动物医院名字大全集最新版英文）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -135,16 +147,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-28524.htm" title="动物疫苗企业名单公示（动物疫苗行业龙头）">动物疫苗企业名单公示（动物疫苗行业龙头）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-25-free-node-subscribe-links.htm" title="10月25日→19.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月25日→19.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-21126.htm" title="动物医院所属行业 动物医院所属行业是什么">动物医院所属行业 动物医院所属行业是什么</a></li>
-                        <li class="py-2"><a href="/news/article-31837.htm" title="如何过滤掉MySQL返回的结果集的行中的重复项？">如何过滤掉MySQL返回的结果集的行中的重复项？</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-14-free-subscribe-node.htm" title="11月14日→19.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月14日→19.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-12-25-quantumult-x-node.htm" title="12月25日→19.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月25日→19.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-11-12-quantumult-x-node-github.htm" title="11月12日→21.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月12日→21.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-25736.htm" title="宠物粮食市场分析论文 宠物粮食市场分析论文范文">宠物粮食市场分析论文 宠物粮食市场分析论文范文</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-21-free-node-subscribe.htm" title="10月21日→20.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月21日→20.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-subscribe-node.htm" title="10月27日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月27日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24331.htm" title="宠物贩卖机市场背景（卫生巾自助贩卖机市场背景）">宠物贩卖机市场背景（卫生巾自助贩卖机市场背景）</a></li>
+                        <li class="py-2"><a href="/news/article-22500.htm" title="Spring Boot启动故障分析神器">Spring Boot启动故障分析神器</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-23-free-node-subscribe.htm" title="12月23日→22.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月23日→22.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-29-node-share-links.htm" title="12月29日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月29日→21.6M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-36211.htm" title="SSM框架中实现数据库操作-从零学习SSM框架（3）">SSM框架中实现数据库操作-从零学习SSM框架（3）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-6-quantumult-x-node-share.htm" title="11月6日→18.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月6日→18.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-21129.htm" title="延吉宠颐生动物医院怎么样（延吉宠物店电话）">延吉宠颐生动物医院怎么样（延吉宠物店电话）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-latest-quantumult-x-node.htm" title="1月15日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月15日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-20666.htm" title="上海地区宠物领养平台排名前十（上海领养宠物的平台）">上海地区宠物领养平台排名前十（上海领养宠物的平台）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-6-node-share-links.htm" title="12月6日→22.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月6日→22.7M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -156,7 +168,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">48</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
