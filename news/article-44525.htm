@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-44525.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>vue 内置组件 component 的用法</title>
+        <meta name="description" content="component is 内置组件切换方法一： component组件（单独拿出一个组件来专门进行切换使用） 使用is来绑定你的组件：如下面的reviewedPlan&nbsp; planDetail" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-44525.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="vue 内置组件 component 的用法" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/4b02641d60a36ba83da3c2beff12ef54.webp" />
+        <meta property="og:release_date" content="2025-01-22T10:13:26" />
+    <meta property="og:updated_time" content="2025-01-22T10:13:26" />
+        <meta property="og:description" content="component is 内置组件切换方法一： component组件（单独拿出一个组件来专门进行切换使用） 使用is来绑定你的组件：如下面的reviewedPlan&nbsp; planDetail" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="vue 内置组件 component 的用法">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                                                <a class="navbar-brand" href="/">
+                                    <span>QuantumultX Free</span>
+                                </a>
+                                                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="#">关于</a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" href="#">联系</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>vue 内置组件 component 的用法</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <h3><u><span style="color:#ff0000;">component is 内置组件切换方法一：</span></u></h3> <p>component组件（单独拿出一个组件来专门进行切换使用）</p> <p>使用is来绑定你的组件：如下面的reviewedPlan&nbsp; planDetailsList&nbsp; &nbsp;attachmentList等引入的组件名</p> <p>changeViewFun 是用来切换组件的方法 通过给is绑定的currentView来实现切换组件</p> <p>pathUrl就是当前的路由</p> <pre><code class="language-html"></code></pre> <pre class="has"><code class="language-html">&lt;template&gt;     &lt;div class="reviewed"&gt;         &lt;component             :is="currentView"             @changeview="changeViewFun"             :pathUrl="pathUrl"         &gt;&lt;/component&gt;     &lt;/div&gt; &lt;/template&gt; &lt;script&gt;      //引入三个需要切换的组件     import reviewedPlan from '../modules/reviewedPlan.vue';     import planDetailsList from './planDetailsList';     import attachmentList from './attachmentList.vue';     export default {         name: "reviewed",         data() {             return {                 currentView:'reviewedPlan',                 pathUrl:'',                 hrefIndex:"",             }         },         components: {             reviewedPlan,             planDetailsList,             attachmentList         },         created () {               this.hrefIndex=window.location.href.indexOf('jxjh')-1;               this.pathUrl=window.location.href.substring(this.hrefIndex);               if(this.$route.query.currentView){                   this.$route.query.currentView = this.$route.query.currentView===this.currentView?this.$route.query.currentView:this.currentView;               }           },         methods:{           //组件切换方法             changeViewFun(val){                 this.currentView = val;             }         },     } &lt;/script&gt; &lt;style lang="less" scoped&gt;     @import "~@/libs/less/theme/theme.less";  &lt;/style&gt;</code></pre> <p>每个切换的组件</p> <pre class="has"><code class="language-html">this.$emit("changeview","planDetailsList");  //父组件监听到changeview，给is绑定的currentView重新赋值 this.$router.push({        path: this.pathUrl,  //通过props接收  props:{pathUrl:String}        query: {           id: params.row.id,   //参数名           from:"reviewedPlan"  //这里加from原因是要区分多个组件的情况下通过路由from参数来区分是通过那个组件切换过来的        }  })</code></pre> <p>返回组件内部方法&nbsp; (点击返回的时候执行的操作)</p> <pre class="has"><code class="language-html">var url =  this.$route.query.from;  //取路由from，区分是那个通过那个组件传递过来的，返回的时候可返回到对应的组件 this.$emit("changeview",url); this.$router.push({       path: this.pathUrl,       query: {              currentView:url,         } })</code></pre> <h3><u><span style="color:#ff0000;">component is 内置组件切换方法二：</span></u></h3> <p>实现的结果是：组件A调转组件B，组件A里面有个查看按钮，点击查看，跳转到组件B，组件B里面点击返回跳转到组件A，使用component，从组件A跳到组件B，在组件B里面刷新之后还是停留在组件B，还有就是点击tab切换的时候也可以，点击那个tab，当前tab发请求。具体实现：</p> <p>1、封装routePlugin.js插件</p> <pre class="has"><code class="language-javascript">const addQuery=function(queryDate){     var query={};     Object.assign(query,this.$route.query,queryDate);     this.$router.push({         path:this.$route.path,         query:query     }); }; const delQuery=function(){     var query={};     var arg=Array.prototype.slice.call(arguments);     Object.assign(query,this.$route.query);     arg.forEach(item=&gt;{         delete query[item];//删除参数     })     this.$router.push({         path:this.$route.path,         query:query     }); }; var install = {     install(Vue) {         Vue.mixin({             beforeCreate() {                 var self=this;                 this.$routePlugin={                     addQuery:addQuery.bind(self),                     delQuery:delQuery.bind(self)                 }             }         })     } } export default install;</code></pre> <p>2、在main.js中注册到全局，<br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;import routePlugin from "./libs/js/vueExtend/routePlugin.js";</p> <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vue.use(routePlugin); //修改参数方法</p> <p>3、在组件内部使用</p> <p>&nbsp; &nbsp; 说明：需要三个组件：第一个：component主控制组件、第二个：初始化组件内容、第三个：跳转过去的组件</p> <p>第一个：studentIndex.vue</p> <pre class="has"><code class="language-javascript">&lt;template&gt;     &lt;component         :is="viewName"         @updateView="updateView"     &gt;     &lt;/component&gt; &lt;/template&gt; &lt;script&gt;  import studentGrowthPortfolio from './studentGrowthPortfolio.vue';  //学生 index import fileDetails from './fileDetails.vue';  //成长档案 详情 export default {     data(){         return{             viewName:"studentGrowthPortfolio",         }     },     components:{         studentGrowthPortfolio,         fileDetails     },     mounted(){         this.viewName=this.$route.query.viewName?this.$route.query.viewName:this.viewName;     },     created () {     },     methods:{         /**          * 接收子组件数据          * @param data {Object}          * @return {Void} 无          */          updateView(name){              this.viewName = name              if(!name){                  this.$routePlugin.delQuery('viewName');              }else{                  this.$routePlugin.addQuery({viewName:name});              }          },     }, } &lt;/script&gt; &lt;style scoped lang="less"&gt;     @import "~@/libs/less/theme/theme.less";  &lt;/style&gt;</code></pre> <p>4、第二个：studentGrowthPortfolio.vue，点击查看需要执行的代码</p> <pre class="has"><code class="language-javascript">click: () =&gt; {         this.$emit("updateView","fileDetails");         this.$routePlugin.addQuery({                viewName:'fileDetails',                identity:'student'           })  }</code></pre> <p>5、第三个：fileDetails.vue，点击返回时需要执行的代码</p> <pre class="has"><code class="language-javascript">click:()=&gt;{      this.$emit('updateView', 'studentGrowthPortfolio') }</code></pre> <p>fileDetails.vue添加beforeDestoy，当离开当前组件时，销毁路由上的identity,和viewName参数</p> <p>beforeDestroy(){<!-- --></p> <p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; this.$routePlugin.delQuery('identity','viewName')</p> <p>&nbsp;},</p> <p>一切都ok了</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-44031.htm">spring schedule 配置多任务动态 cron 【增删启停】</a></p>
+                                        <p>下一个：<a href="/news/article-44526.htm">动物疫苗有哪些大厂家生产的好（国内动物疫苗龙头企业）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2024-10-27-free-subscribe-node.htm" title="10月27日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址">10月27日→22.3M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-17-quantumult-x-node-github.htm" title="1月17日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月17日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-39583.htm" title="广州领养宠物狗的地方有哪些景点（广州领养宠物中心）">广州领养宠物狗的地方有哪些景点（广州领养宠物中心）</a></li>
+                        <li class="py-2"><a href="/news/article-39056.htm" title="使用TreeMap在Java中对用户定义的对象进行排序">使用TreeMap在Java中对用户定义的对象进行排序</a></li>
+                        <li class="py-2"><a href="/news/article-32797.htm" title="昆明免费领养宠物的地方（昆明免费领养宠物的地方在哪里）">昆明免费领养宠物的地方（昆明免费领养宠物的地方在哪里）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-14-node-share.htm" title="1月14日→20.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月14日→20.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-26667.htm" title="重庆狗狗领养（重庆狗狗领养中心）">重庆狗狗领养（重庆狗狗领养中心）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-latest-quantumult-x-node.htm" title="1月11日→21.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月11日→21.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-28-node-share.htm" title="11月28日→18.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月28日→18.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-24331.htm" title="宠物贩卖机市场背景（卫生巾自助贩卖机市场背景）">宠物贩卖机市场背景（卫生巾自助贩卖机市场背景）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">34</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">25</span> <a href="/date/2024-10/" title="2024-10 归档">2024-10</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
