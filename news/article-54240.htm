@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-54240.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SpringBoot Jar包部署在Nginx上</title>
+        <meta name="description" content="本文包含以下内容：  Linux服务器上安装JDK Springboot项目打成Jar包 Nginx部署项目分发    1、Java JDK是区分32位和64位的，所以在安装JDK之前需要首先判断一下" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-54240.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="SpringBoot Jar包部署在Nginx上" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/4b02641d60a36ba83da3c2beff12ef54.webp" />
+        <meta property="og:release_date" content="2025-02-10T07:38:28" />
+    <meta property="og:updated_time" content="2025-02-10T07:38:28" />
+        <meta property="og:description" content="本文包含以下内容：  Linux服务器上安装JDK Springboot项目打成Jar包 Nginx部署项目分发    1、Java JDK是区分32位和64位的，所以在安装JDK之前需要首先判断一下" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="SpringBoot Jar包部署在Nginx上">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>SpringBoot Jar包部署在Nginx上</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> </h1> </h1> <p></p> </h1> <hr/> <p>本文包含以下内容：</p> <ul> <li>Linux服务器上安装JDK</li> <li>Springboot项目打成Jar包</li> <li>Nginx部署项目分发</li> </ul> </h1> <hr/> <p>1、Java JDK是区分32位和64位的，所以在安装<code>JDK</code>之前需要首先判断一下我们<code>Linux</code>是哪一个版本的，在<code>Xshell 6</code>中通过执行以下命令：</p> <pre class="has"><code>uname –a</code></pre> <p>显示结果中如果有<code>x86_64</code>就是<code>64</code>位的，没有就是<code>32</code>位的，可以看出我这里的版本是64位的。</p> <p>2、从<code>Oracle</code>官网上下载<code>Linux x64</code>版本的<code>jdk-8u45-linux-x64.rpm</code>文件，如下图所示：</p> <p><a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://links.jianshu.com/go?to=https%3A%2F%2Fwww.oracle.com%2Ftechnetwork%2Fjava%2Fjavase%2Fdownloads%2Findex.html"  rel="nofollow">进入Oracle下载首页</a></p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/aa4f833466a5203875873f7f877a437d.jpg"></p> <p>首页</p> <p>拉到最下面</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/936d0c1bab12061369ce87f292389d61.jpg"></p> <p>历史版本</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/0c4ba2e8d97dc3f21b728fbd857c0cd0.jpg"></p> <p>进入下载</p> <p>3、使用 xftp 将JDK上传到Linux服务器</p> <p>切换到<code>/usr/local</code>目录下，在此目录下新建文件夹<code>jdk_8u45</code>，用于存放<code>jdk</code>的安装包，命令如下</p> <pre class="has"><code>cd /usr/local mkdir jdk_8u45</code></pre> <p>使用远程连接工具<code>Xftp</code>&nbsp;连接服务器，然后使用如下命令，上传到<code>/usr/local/jdk_8u45</code>目录下</p> <p>上传完后的文件如下，文件只有<code>读写</code>权限，没有<code>执行</code>权限</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/c6b773512a2516cd775a03ec6350e0f8.jpg"></p> <p>使用如下命令授权，如果文件已经有了执行权限，此步骤可省略</p> <pre class="has"><code>chmod 755 jdk-8U45-linux-x64.rpm</code></pre> <p>再次<code>ll</code>查看</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/5df87b7d932f068e2f9b762f4a2b2b04.jpg"></p> <p>4、安装JDK</p> <p>执行如下命令安装jdk</p> <pre class="has"><code># rpm -ivh jdk-8u45-linux-x64.rpm</code></pre> <p>JDK安装成功后，默认存放在<code>/usr/java</code>文件目录中</p> <p>5、配置环境变量</p> <p>使用<code>vim</code>或<code>vi</code>编辑器打开文件<code>/etc/profile</code></p> <pre class="has"><code># vim /etc/profile  # vi /etc/profile</code></pre> <p>在文件尾部添加如下内容，保存退出</p> <pre class="has"><code>export JAVA_HOME=/usr/java/jdk1.7.0_71 export PATH=$JAVA_HOME/bin:$PATH export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tool.jar</code></pre> <p>此时，我们刚刚配置的环境变量并没有起效，输入如下命令，使用环境变量立即生效</p> <pre class="has"><code># source /etc/profile</code></pre> <p>输入如下命令验证环境变量是否生效</p> <pre class="has"><code># echo $PATH</code></pre> <p>输入如下命令查看jdk版本</p> <pre class="has"><code># java -version</code></pre> </h1> <hr/> <p>1、在<code>pom.xml</code>文件中添加</p> <pre class="has"><code>&lt;packaging&gt;jar&lt;/packaging&gt;</code></pre> <p>2、在<code>pom.xml</code>中添加新的插件</p> <pre class="has"><code>    &lt;build&gt;         &lt;finalName&gt;sell&lt;/finalName&gt;         &lt;plugins&gt;             &lt;plugin&gt;                 &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;                 &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;             &lt;/plugin&gt;               &lt;plugin&gt;                 &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;                 &lt;artifactId&gt;maven-surefire-plugin&lt;/artifactId&gt;                 &lt;version&gt;2.22.1&lt;/version&gt;                 &lt;configuration&gt;                     &lt;!-- 不指定单元测试 --&gt;                     &lt;skipTests&gt;true&lt;/skipTests&gt;                 &lt;/configuration&gt;             &lt;/plugin&gt;         &lt;/plugins&gt;     &lt;/build&gt;</code></pre> <p>3、使用<code>IDEA编辑器</code>的<code>Maven</code>插件进行打包</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220603/98817c1a2ce9afff866bccbfbc745876.jpg"></p> <p>出现<code>build success</code>即为打包完成</p> <p>4、在项目中的<code>target</code>目录下出现一个可执行的<code>jar</code>文件</p> <p>5、使用<code>FTP</code>工具将jar包上传至<code>root</code>目录下</p> <p>此时<code>Jar</code>包已打包完成并上传至Linux服务器上。</p> </h1> <p>1、在Linux服务器上进入Nginx配置目录：</p> <pre class="has"><code> cd /usr/local/nginx/conf/</code></pre> <p>这里给出<code>nginx.conf</code>的配置</p> <pre class="has"><code>    server {         listen       80;         server_name  localhost;         #charset koi8-r;          #access_log  logs/host.access.log  main;          location / {             root   html;             index  index.html index.htm index.php;         }                  #将/wvv请求转发给http://127.0.0.1:1992/wvv处理         location /wvv {         proxy_set_header Host $host;         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;         proxy_pass http://127.0.0.1:1992/wvv;     }   }</code></pre> <p>同理可应用在<code>HTTPS</code>上的分发策略</p> <p>注意上面的端口号一定要跟程序中<code>application.properties</code>保持一致。</p> <p>如果是部署多个<code>SpringBoot</code>项目，则可以多次添加如下配置，只要修改成不一样的路径即可</p> <pre class="has"><code>#将/wvv请求转发给http://127.0.0.1:1991/project处理     location /project{       proxy_set_header Host $host;       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;       proxy_pass http://127.0.0.1:1991/project;     }</code></pre> <p>配置完成后，重启<code>nginx</code>。</p> <pre class="has"><code>nginx -s reload</code></pre> <p>接下来直接使用<code>nohup</code>命令进行后台启动应用<code>jar</code>包，但是要在jar包所在当前目录进行nohup启动。（注意）</p> <pre class="has"><code>nohup java -jar sell.jar  &amp;</code></pre> <p>其实到这里本文教程算是告一段落了，但是重新启动项目还是比较繁琐的。</p> </h1> <p>先来说一下，正常的重启方式吧。</p> <p>两种方式进行进程号的查询</p> <pre class="has"><code>ps -ef|grep jar包名  或者 netstat -nap|grep jar包启动端口号，如8080</code></pre> <p>然后去<code>kill</code>进程</p> <pre class="has"><code>kill -9 刚刚查询到的进程号</code></pre> <p>然后重新上传新的要覆盖的Jar包，进行<code>nohup</code>命令后台启动。</p> <p>整合了一个启动脚本，顿时项目部署变得无比简单。</p> <p>下面是具体步骤：</p> <p>1、项目重启的脚本，写个<code>start.sh</code>&nbsp;的脚本，注意脚本和<code>jar</code>包同级目录</p> <pre class="has"><code>vi start.sh</code></pre> <pre class="has"><code>#!/bin/sh RESOURCE_NAME=resource-0.0.1-SNAPSHOT.jar   tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'` if [ ${tpid} ]; then echo 'Stop Process...' kill -15 $tpid fi sleep 5 tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'` if [ ${tpid} ]; then echo 'Kill Process!' kill -9 $tpid else echo 'Stop Success!' fi   tpid=`ps -ef|grep $RESOURCE_NAME|grep -v grep|grep -v kill|awk '{print $2}'` if [ ${tpid} ]; then     echo 'App is running.' else     echo 'App is NOT running.' fi   rm -f tpid nohup java -jar ./$RESOURCE_NAME --spring.profiles.active=test &amp; echo $! &gt; tpid echo Start Success!</code></pre> <p>2、<code>chmod +x start.sh</code>&nbsp;(第一次运行的时候获取一下超级管理员权限)</p> <p>然后以后每次运行直接</p> <p><code>./start.sh</code>&nbsp;即可</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-53705.htm">正规宠物领养机构 正规宠物领养机构有哪些</a></p>
+                                        <p>下一个：<a href="/news/article-54241.htm">长沙宠物领养吧 长沙宠物领养吧百度贴吧</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-40547.htm" title="使用canvas制作验证码">使用canvas制作验证码</a></li>
+                        <li class="py-2"><a href="/news/article-50528.htm" title="淮北哪里有寄养宠物的地方（淮北宠物领养中心在哪）">淮北哪里有寄养宠物的地方（淮北宠物领养中心在哪）</a></li>
+                        <li class="py-2"><a href="/news/article-29459.htm" title="Libco Hook 机制浅析_在线工具">Libco Hook 机制浅析_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-46507.htm" title="养猫要打疫苗要多少钱一次（养猫要打疫苗要多少钱一次呀）">养猫要打疫苗要多少钱一次（养猫要打疫苗要多少钱一次呀）</a></li>
+                        <li class="py-2"><a href="/news/article-35170.htm" title="兽用疫苗销售人员（兽用疫苗销售人员要求）">兽用疫苗销售人员（兽用疫苗销售人员要求）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-latest-quantumult-x-node.htm" title="1月15日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月15日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-7-quantumult-x-node-windows.htm" title="2月7日→18.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月7日→18.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19293.htm" title="YARN基本介绍与HA">YARN基本介绍与HA</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-22-free-high-speed-nodes.htm" title="12月22日→19.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月22日→19.8M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-52097.htm" title="卖宠物粮食的公司叫什么名字呢好听点（宠物粮食销售）">卖宠物粮食的公司叫什么名字呢好听点（宠物粮食销售）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
