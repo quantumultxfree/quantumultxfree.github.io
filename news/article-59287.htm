@@ -150,6 +150,7 @@
                   				  				  				<p>我们可以很轻松的去遍历一棵树，无论是广度优先遍历还是深度优先遍历，那么怎么在小程序当中渲染一棵树呢？</p> <p>先看一下我们深度优先遍历的代码</p> <div class="cnblogs_Highlighter"> <pre class="brush:javascript;gutter:true;">function dfs(tree) {     if(!tree) return     console.log(tree.value)     if (tree.children) {         for(let i = 0; i &lt; tree.children.length; i++) {             dfs(tree.children[i])         }     } }</pre> </div> <p>可以看出，深度优先遍历的算法是利用递归，判断是否此节点有children属性，如果有就再次递归。</p> <p>那么，我们小程序是不是可以定义一个组件，然后，这个组件接收一个object，然后在此组件内，判断object是否有children，如果有，就循环调用此组件，是不是就可以了呢？</p> <p>下面我们来试一试。首先，我们来写一个组件，名字叫做 TreeNode，会接收一个参数 treeVal</p> <div class="cnblogs_Highlighter"> <pre class="brush:html;gutter:true;">&lt;view&gt;     {{treeVal.value}}     &lt;view wx:if="treeVal.children" class="children_con"&gt;         &lt;block wx:for="{{treeVal.children}}"&gt;             &lt;TreeNode treeVal="{{item}}"&gt;&lt;/TreeNode&gt;         &lt;/block&gt;     &lt;/view&gt;  &lt;/view&gt;</pre> </div> <p>JS部分</p> <div class="cnblogs_Highlighter"> <pre class="brush:javascript;gutter:true;">Component({     properties: {         treeVal: Object     } })</pre> </div> <p>CSS部分</p> <div class="cnblogs_Highlighter"> <pre class="brush:css;gutter:true;">.children_con {     padding-left: 50rpx; }</pre> </div> <p>是不是很简单就实现了呢？</p> 			                <div class="clearfix"></div>
                 <div class="col-md-12 mt-5">
                                         <p>上一个：<a href="/news/article-59286.htm">如何从AngularJS模板的HTML中调用encodeURIComponent？</a></p>
+                                        <p>下一个：<a href="/news/article-59850.htm">南平领养猫（泉州领养猫）</a></p>
                                     </div>
                                 </div>
                 <div class="col-md-3">
@@ -159,16 +160,16 @@
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/news/article-58794.htm" title="机器学习笔记：Python底层实现KNN">机器学习笔记：Python底层实现KNN</a></li>
-                        <li class="py-2"><a href="/news/article-34218.htm" title="点击轮播图片左右button，实现轮播效果">点击轮播图片左右button，实现轮播效果</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-4-quantumult-x-node.htm" title="2月4日→22.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月4日→22.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-19293.htm" title="YARN基本介绍与HA">YARN基本介绍与HA</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-1-2-quantumult-x-node.htm" title="1月2日→18.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月2日→18.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-47978.htm" title="学美容要多大年龄（学美容要多大年龄合适）">学美容要多大年龄（学美容要多大年龄合适）</a></li>
-                        <li class="py-2"><a href="/free-nodes/2025-2-13-free-high-speed-nodes.htm" title="2月13日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月13日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/news/article-37588.htm" title="动物疫苗可以自己打吗多少钱啊图片视频（动物接种疫苗多少钱）">动物疫苗可以自己打吗多少钱啊图片视频（动物接种疫苗多少钱）</a></li>
-                        <li class="py-2"><a href="/news/article-56459.htm" title="宠物粮生产设备前十名排名最新（宠物粮厂家）">宠物粮生产设备前十名排名最新（宠物粮厂家）</a></li>
-                        <li class="py-2"><a href="/news/article-42551.htm" title="做梦梦见抱别的女人走路什么意思呀（梦见我抱着别的女人）">做梦梦见抱别的女人走路什么意思呀（梦见我抱着别的女人）</a></li>
+                        <li class="py-2"><a href="/news/article-53160.htm" title="新手怎么开宠物店去哪里进货呢（新手怎么开宠物店去哪里进货呢知乎）">新手怎么开宠物店去哪里进货呢（新手怎么开宠物店去哪里进货呢知乎）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-17-free-subscribe-node.htm" title="12月17日→20.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月17日→20.2M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-7-free-subscribe-node.htm" title="1月7日→22.2M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月7日→22.2M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-30-node-share.htm" title="11月30日→21.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月30日→21.4M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-19295.htm" title="动物疫苗价格表图片及价格大全图（动物疫苗多少钱一支）">动物疫苗价格表图片及价格大全图（动物疫苗多少钱一支）</a></li>
+                        <li class="py-2"><a href="/news/article-33746.htm" title="动物疫苗排名前十名有哪些种类 动物疫苗排名前十名有哪些种类的">动物疫苗排名前十名有哪些种类 动物疫苗排名前十名有哪些种类的</a></li>
+                        <li class="py-2"><a href="/news/article-23871.htm" title="动物疫苗的股票有哪些 动物疫苗相关股票">动物疫苗的股票有哪些 动物疫苗相关股票</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share-links.htm" title="11月25日→21.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月25日→21.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-18851.htm" title="动物医院宣传介绍怎么写（动物医院经营范围怎么写）">动物医院宣传介绍怎么写（动物医院经营范围怎么写）</a></li>
+                        <li class="py-2"><a href="/news/article-25735.htm" title="宠物医院好评评语200字 给宠物医院好评怎么写">宠物医院好评评语200字 给宠物医院好评怎么写</a></li>
                     </ul>
     </div>
 </div>
@@ -180,7 +181,7 @@
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">57</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>

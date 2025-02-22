@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-61027.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Qt程序打包发布，含第三方库，详细教程。</title>
+        <meta name="description" content="1、在Qt里选择release构建。  2、点击run运行，保证程序能够成功运行出来。  3、成功能运行后，去构建成功的build release文件夹下找到刚刚编译后的.exe文件。  4、单独复制" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-61027.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="Qt程序打包发布，含第三方库，详细教程。" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/db742a65e36ac9fe407a043de531b2a7.webp" />
+        <meta property="og:release_date" content="2025-02-22T07:11:45" />
+    <meta property="og:updated_time" content="2025-02-22T07:11:45" />
+        <meta property="og:description" content="1、在Qt里选择release构建。  2、点击run运行，保证程序能够成功运行出来。  3、成功能运行后，去构建成功的build release文件夹下找到刚刚编译后的.exe文件。  4、单独复制" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Qt程序打包发布，含第三方库，详细教程。">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>Qt程序打包发布，含第三方库，详细教程。</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p id="u6f20dad4">1、在Qt里选择release构建。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/6869cdd4b575e3960b6f5ddec10dcb0e.jpg"></p> <p id="u1fd1086f">2、点击run运行，保证程序能够成功运行出来。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/942b281eebbdabb95607c809dddf3a14.jpg"></p> <p id="u3b9da9b7">3、成功能运行后，去构建成功的build release文件夹下找到刚刚编译后的.exe文件。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/d6cbf7d1edd7b9d33bfb166aeb981009.jpg"></p> <p id="u3f7cd775">4、单独复制出来到一个新文件夹model，复制进去。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/86098ddbb333f5b7cd05651032c8b60e.jpg"></p> <p id="u3cd1e4d1">5、在qt程序找到如下，构建的时候选择64位，现在打包编译也是需要64位，一一对应，不能混32位。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/175ec720a39b1c4f76357a78638b4fbf.jpg"></p> <p id="u996b8021">6、点击，命令执行进入到刚刚创建的文件夹下。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/e07b81153b97a7fda86c32dce65535aa.jpg"></p> <p id="uee89320f">7、执行<code>windeployqt jie_mian1.exe</code>，也就是windeployqt+你自己刚刚编译后的程序名称.exe。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/ea2b4c29dabc9611ce7891d38e1537f4.jpg"></p> <p id="uf3facacd">8、此时已经在model文件下qt依赖库已经安装好了，直接点击就可以运行。<strong>但是如果含有第三库.dll，点击会提示找不到，所以这时候把.dll拷贝到model文件夹下，即可。</strong></p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/381dc137ab656a518709714f0a00423b.jpg"></p> <p id="u20a423ec">9、<strong>把缺少的第三方库拷贝到model文件夹下和qt依赖库放一起，即可打开</strong>，因为原来在qt上debug的时候，第三方库也是放在build debug文件夹下的，所以debug模式编译时候能找到。</p> <p id="ua27f9a00">10、打开打包软件。用<strong> Enigma Virtual Box软件</strong>。没有的同学，自己要去网上下载一个。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/6d0de04a366d79933beda4fa818f0e25.jpg"></p> <p id="uabd82c2d">11、点击浏览，选择要打包的.exe文件。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/a57cd0f8bc5b2eb43fce1fc21ce7d69f.jpg"></p> <p id="ud09ef2c3">12、点击文件选项，勾选压缩文件。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/800d6f05bb6108621a8331430d5b4be3.jpg"></p> <p id="u31586af8">13、点击左下角添加，选择按文件递归。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/adebaf7bec9fcb78e6a79bdeed7f2051.jpg"></p> <p id="u5a8221e6">14、选择刚刚的model文件夹，点击确定。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/c52c7fa4dcdda34e159a4d9682f86be2.jpg"></p> <p id="u09e31671">15、选择默认，确定即可。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/f9fb3cd864ae9367fc898711959b1173.jpg"></p> <p id="u85b7f705">16、最后看到下图，最后点击打包即可。</p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/dd48ca49dab0da89f34755c6d505ea2c.jpg"></p> <p class="img-center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads/20230108/aef03e75b8ef4477f1e5480762589dd6.jpg"></p> <p id="u42c8becc">17、打包成功之后在<strong>刚刚设置的输出目标目录</strong>会出现打包好的<strong>XXXXX_boxed.exe</strong>应用程序，这个程序就是可以直接完全打包好的，<strong>点击即用</strong>。</p> <h3 id="gHV9p">希望我的教程可以帮助到你，祝你每天开心。</h3> <p id="uf4b35329"> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-60454.htm">江西哪里漂流比较好玩一点(江西哪里有漂流最好)</a></p>
+                                        <p>下一个：<a href="/news/article-61028.htm">动物医院的面积不得小于多少平方（动物医院设计图平面200平米）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-33746.htm" title="动物疫苗排名前十名有哪些种类 动物疫苗排名前十名有哪些种类的">动物疫苗排名前十名有哪些种类 动物疫苗排名前十名有哪些种类的</a></li>
+                        <li class="py-2"><a href="/news/article-23408.htm" title="动物疫苗厂家查询电话 动物疫苗厂家查询电话号码">动物疫苗厂家查询电话 动物疫苗厂家查询电话号码</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-4-latest-quantumult-x-node.htm" title="1月4日→21.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月4日→21.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-12-8-today-quantumult-x-node.htm" title="12月8日→20.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址">12月8日→20.5M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-59850.htm" title="南平领养猫（泉州领养猫）">南平领养猫（泉州领养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-25735.htm" title="宠物医院好评评语200字 给宠物医院好评怎么写">宠物医院好评评语200字 给宠物医院好评怎么写</a></li>
+                        <li class="py-2"><a href="/news/article-24330.htm" title="宠物粮食品牌起名大全图片及名字视频（宠物粮品牌名称）">宠物粮食品牌起名大全图片及名字视频（宠物粮品牌名称）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2024-11-25-node-share-links.htm" title="11月25日→21.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址">11月25日→21.1M/S|2024年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-35169.htm" title="Python 实现走迷宫深度优先回溯算法（优质代码）">Python 实现走迷宫深度优先回溯算法（优质代码）</a></li>
+                        <li class="py-2"><a href="/news/article-48966.htm" title="宠物领养软件下载（宠物领养的app）">宠物领养软件下载（宠物领养的app）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">66</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">92</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">93</span> <a href="/date/2024-12/" title="2024-12 归档">2024-12</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">30</span> <a href="/date/2024-11/" title="2024-11 归档">2024-11</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
