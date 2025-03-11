@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-70999.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>【小程序】微信小程序自定义导航栏及其封装</title>
+        <meta name="description" content="????????  ✨： 微信小程序自定义导航栏   ????：东非不开森的主页   ????: 因为很多东西来不及去做去看可是时间很快总是赶不上，所以要去成长呀????????   ????: 如有" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-70999.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="【小程序】微信小程序自定义导航栏及其封装" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/ffa83c340a1cf781855561acfa9d909f.webp" />
+        <meta property="og:release_date" content="2025-03-10T04:37:02" />
+    <meta property="og:updated_time" content="2025-03-10T04:37:02" />
+        <meta property="og:description" content="????????  ✨： 微信小程序自定义导航栏   ????：东非不开森的主页   ????: 因为很多东西来不及去做去看可是时间很快总是赶不上，所以要去成长呀????????   ????: 如有" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="【小程序】微信小程序自定义导航栏及其封装">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>【小程序】微信小程序自定义导航栏及其封装</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="markdown_views prism-atom-one-light"> <p>????????</p> <blockquote> <p>✨： 微信小程序自定义导航栏<br />  <br /> ????：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://blog.csdn.net/m0_62159662?spm=1000.2115.3001.5343"  rel="nofollow">东非不开森的主页</a><br />  <br /> ????: 因为很多东西来不及去做去看可是时间很快总是赶不上，所以要去成长呀????????<br />  <br /> ????: 如有错误或不足之处，希望可以指正，非常感谢????<br />  </p> </blockquote> <p>应用场景：我们在小程序中想要自定义导航栏（当然组件库更方便哈哈）</p> <div class="toc"> <h3>小程序自定义导航栏</h3> <ul> <li> <ul> <li><a href="#_14" rel="nofollow">一、导航栏适配</a></li> <li> <ul> <li><a href="#11json_15" rel="nofollow">1.1.在json文件里更改页面配置项</a></li> <li><a href="#12_28" rel="nofollow">1.2.导航栏适配每种机型</a></li> </ul> </li> <li><a href="#_55" rel="nofollow">二、封装导航栏组件</a></li> <li> <ul> <li><a href="#21wxml_59" rel="nofollow">2.1.wxml</a></li> <li><a href="#22wxss_92" rel="nofollow">2.2.wxss</a></li> <li><a href="#23js_136" rel="nofollow">2.3.js</a></li> <li><a href="#24_165" rel="nofollow">2.4.在页面中使用导航栏组件</a></li> <li><a href="#25_173" rel="nofollow">2.5.效果图</a></li> </ul> </li> </ul> </li> </ul> </div> <h2> <a id="_14" rel="nofollow"></a>一、导航栏适配</h2> <h3> <a id="11json_15" rel="nofollow"></a>1.1.在json文件里更改页面配置项</h3> <p>⭐⭐⭐<br />  <br /> 官方文档介绍的有：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/606e8e75d8fe062a02de3427cf7412eb.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"></p> <p><code>"navigationStyle": "custom"</code><br /> 这样原本默认的导航栏就会消失了<br />  <br /> PS: <strong>如果是单页面需要就写在对应页面的json内，如果全局需要就写在app.josn内</strong><br />  <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/d234917f9d0b168bfbd2b864c8c4cce2.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br />  </p> <h3> <a id="12_28" rel="nofollow"></a>1.2.导航栏适配每种机型</h3> <p>⭐⭐⭐<br />  </p> <p>在<code>app.js</code> 里面获取statusbarHeight（这个就是每种机型的导航高度，我们需要获取并且动态的展示）<br />  <br /><code>wx.getSystemInfo</code>获取。<br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/00a51b6adc114dbc796152f9a29e36c5.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br />  </p> <p>我们要在对应该导航组件的<code>js</code>文件里面进行获取</p> <ul> <li> <code>data</code>中定义一个数据</li> <li>在动态从<code>app.js</code>中获取</li> <li>将获取到的<code>statusBarHeight</code>，存储到<code>data</code>中</li> </ul> <p> </p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/f9c2739f7f95a224b851c91eb31c9434.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br />  </p> <p>在<code>wxml</code>里面动态的使用该数据<br />  </p> <p><img decoding="async" src="http://img.555519.xyz/uploads/20221229/02baab9e069c57d88fee5ca2a2cca2be.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br /> 这样机型适配就完成啦o(<em>￣︶￣</em>)o<br />  </p> <h2> <a id="_55" rel="nofollow"></a>二、封装导航栏组件</h2> <p>⭐⭐⭐⭐⭐<br />  </p> <h3> <a id="21wxml_59" rel="nofollow"></a>2.1.wxml</h3> <p> </p> <p>这里我们使用了插槽<br /> （可以看看插槽的内容）<br />  </p> <pre><code class="prism language-html"><span class="token comment">&lt;!--components/nav-bar/nav-bar.wxml--&gt;</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav-bar<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>status<span class="token punctuation">"</span></span> <span class="token special-attr"><span class="token attr-name">style</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span><span class="token value css language-css"><span class="token selector">height:</span> <span class="token punctuation">{<!-- --></span><span class="token punctuation">{<!-- --></span>statusHeight<span class="token punctuation">}</span><span class="token punctuation">}</span>px<span class="token punctuation">;</span></span><span class="token punctuation">"</span></span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>nav<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slot<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>left<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>image</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>icon<span class="token punctuation">"</span></span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>/assets/images/icons/arrow-left.png<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>image</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>slot<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>slot</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>center<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>slot</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>default<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>           {<!-- -->{title}}         <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>       <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>view</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>right<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>view</span><span class="token punctuation">&gt;</span></span>  </code></pre> <h3> <a id="22wxss_92" rel="nofollow"></a>2.2.wxss</h3> <p>⭐⭐⭐<br />  </p> <ul> <li>这里主要控制导航栏显示的位置</li> <li>还有默认插槽用通过css3的伪类:empty，class="default"的view盒子默认的样式是display: none隐藏的，如果class="slot"的view盒子为空时，那么就会将class="default"的view盒子的样式设为display: flex（<strong>因为小程序是默认不显示默认插槽的</strong>）<br />  </li> </ul> <pre><code class="prism language-css"><span class="token comment">/* components/nav-bar/nav-bar.wxss */</span> <span class="token comment">/* 自定义导航 */</span> <span class="token selector">.nav</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>   <span class="token property">height</span><span class="token punctuation">:</span> 44px<span class="token punctuation">;</span>   <span class="token property">color</span><span class="token punctuation">:</span> #fff<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.left, .right, .center</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>   <span class="token property">justify-content</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>   <span class="token property">align-items</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.nav .left, .nav .right</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">width</span><span class="token punctuation">:</span> 120rpx<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.nav .center</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token comment">/* 控制内容显示 */</span> <span class="token selector">.left .icon</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">width</span><span class="token punctuation">:</span> 40rpx<span class="token punctuation">;</span>   <span class="token property">height</span><span class="token punctuation">:</span> 40rpx<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.default</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span> <span class="token punctuation">}</span>  <span class="token selector">.slot:empty + .default</span> <span class="token punctuation">{<!-- --></span>   <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span> <span class="token punctuation">}</span>  </code></pre> <h3> <a id="23js_136" rel="nofollow"></a>2.3.js</h3> <p> </p> <ul> <li>在properties下设置标题</li> <li>在options开启多个插槽</li> </ul> <pre><code class="prism language-javascript"><span class="token comment">// components/nav-bar/nav-bar.js</span>  <span class="token keyword">const</span> app <span class="token operator">=</span> <span class="token function">getApp</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token function">Component</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span>   <span class="token literal-property property">options</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">multipleSlots</span><span class="token operator">:</span> <span class="token boolean">true</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">properties</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">title</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>       <span class="token literal-property property">type</span><span class="token operator">:</span> String<span class="token punctuation">,</span>       <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token string">"导航标签"</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">data</span><span class="token operator">:</span><span class="token punctuation">{<!-- --></span>     <span class="token literal-property property">statusHeight</span><span class="token operator">:</span><span class="token number">20</span>   <span class="token punctuation">}</span><span class="token punctuation">,</span>   <span class="token literal-property property">lifetimes</span><span class="token operator">:</span> <span class="token punctuation">{<!-- --></span>     <span class="token function">attached</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{<!-- --></span>       <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setData</span><span class="token punctuation">(</span><span class="token punctuation">{<!-- --></span><span class="token literal-property property">statusHeight</span><span class="token operator">:</span> app<span class="token punctuation">.</span>globalData<span class="token punctuation">.</span>statusHeight<span class="token punctuation">}</span><span class="token punctuation">)</span>     <span class="token punctuation">}</span>   <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> </code></pre> <h3> <a id="24_165" rel="nofollow"></a>2.4.在页面中使用导航栏组件</h3> <p>⭐⭐⭐<br />  <br /> 因为插槽的使用，这里就很方便了,如果添加内容，那么就会显示默认插槽<br />  <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/35347b55b560684ddfd265d0d7d30a11.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/b5f0018f9be231834e2e5ac0c9300e46.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"></p> <h3> <a id="25_173" rel="nofollow"></a>2.5.效果图</h3> <p> <br /> 这就是大概的效果了，当然文字箭头这里都是可以自定义的hh<br />  <br /><img decoding="async" src="http://img.555519.xyz/uploads/20221229/a46d4c6eb8aea396e4f753e29acaa7fa.jpg" alt="【小程序】微信小程序自定义导航栏及其封装"><br /> &lt;(￣︶￣)↗[GO!]&lt;(￣︶￣)↗[GO!]</p> </p></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-70340.htm">广州宠物领养中心具体地址电话号码（广州市宠物领养中心）</a></p>
+                                        <p>下一个：<a href="/news/article-71000.htm">厦门宠物领养中心哪家好一点 厦门宠物领养中心哪家好一点的</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-38093.htm" title="狗粮加工企业排名前十（寻求狗粮加工合作厂家）">狗粮加工企业排名前十（寻求狗粮加工合作厂家）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-quantumult-x-node-share.htm" title="2月12日→18.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月12日→18.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-55350.htm" title="宠物店的宠物从哪进货便宜（宠物店都是在哪里进货）">宠物店的宠物从哪进货便宜（宠物店都是在哪里进货）</a></li>
+                        <li class="py-2"><a href="/news/article-46004.htm" title="北京看小动物的地方（北京看动物去哪）">北京看小动物的地方（北京看动物去哪）</a></li>
+                        <li class="py-2"><a href="/news/article-48966.htm" title="宠物领养软件下载（宠物领养的app）">宠物领养软件下载（宠物领养的app）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-15-latest-quantumult-x-node.htm" title="1月15日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月15日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-60454.htm" title="江西哪里漂流比较好玩一点(江西哪里有漂流最好)">江西哪里漂流比较好玩一点(江西哪里有漂流最好)</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-18-free-node-subscribe-links.htm" title="1月18日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月18日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-43539.htm" title="济南免费领养宠物的网站（济南免费领养猫）">济南免费领养宠物的网站（济南免费领养猫）</a></li>
+                        <li class="py-2"><a href="/news/article-67739.htm" title="开一家宠物食品加工厂怎么样（开一家宠物食品加工厂怎么样赚钱吗）">开一家宠物食品加工厂怎么样（开一家宠物食品加工厂怎么样赚钱吗）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">33</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
