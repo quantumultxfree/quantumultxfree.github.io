@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-72314.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Springboot2 集成Swagger2，解决配置完成后不显示的坑</title>
+        <meta name="description" content="为新项目做准备重新搭建环境，决定使用Springboot2+mybatis环境，使用shiro做权限管理，并搭配pagehelper，generator等。在配置Swagger2的时候出现访问时界面空" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-72314.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="Springboot2 集成Swagger2，解决配置完成后不显示的坑" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/1513c6f04231f0acd85350eb03da01d6.webp" />
+        <meta property="og:release_date" content="2025-03-12T06:08:43" />
+    <meta property="og:updated_time" content="2025-03-12T06:08:43" />
+        <meta property="og:description" content="为新项目做准备重新搭建环境，决定使用Springboot2+mybatis环境，使用shiro做权限管理，并搭配pagehelper，generator等。在配置Swagger2的时候出现访问时界面空" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Springboot2 集成Swagger2，解决配置完成后不显示的坑">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>Springboot2 集成Swagger2，解决配置完成后不显示的坑</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="content_views" class="htmledit_views"> <p><span style="color:#000000;">为新项目做准备重新搭建环境，决定使用Springboot2+mybatis环境，使用shiro做权限管理<span style="color:#000000;">，并搭配pagehelper，generator等。在配置Swagger2的时候出现访问时界面空白的坑，刚开始以为是配置的插件过多导致的不兼容，重新配置了其他环境，但问题依然存在，后来查找资料解决了问题。现在此作记录。目前使用Springboot 版本为&nbsp; 2.0.3.RELEASE。</span></span></p> <p><span style="color:#000000;">一、springboot2导包（maven）：</span></p> <p><span style="color:#000000;">在pom.xml中</span></p> <pre class="has"><code class="language-html">&lt;!--Swagger2--&gt; &lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;    &lt;version&gt;${springfox-swagger2.version}&lt;/version&gt; &lt;/dependency&gt; &lt;dependency&gt;    &lt;groupId&gt;io.springfox&lt;/groupId&gt;    &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;    &lt;version&gt;${springfox-swagger2.version}&lt;/version&gt; &lt;/dependency&gt;</code></pre> <pre class="has"><code class="language-html">&lt;springfox-swagger2.version&gt;2.8.0&lt;/springfox-swagger2.version&gt;</code></pre> <p><span style="color:#000000;">二、Swagger2配置</span></p> <p><span style="color:#000000;">&nbsp;&nbsp;&nbsp; 新建<span style="color:#000000;">Swagger2配置文件<span style="color:#000000;"><span style="color:#000000;">Swagger2</span></span>Config.java</span></span></p> <p><span style="color:#000000;"><span style="color:#000000;">&nbsp;&nbsp;&nbsp; 配置文件<span style="color:#000000;"><span style="color:#000000;"><span style="color:#000000;"><span style="color:#000000;">Swagger2</span></span>Config.java</span></span>中：支持多个api文档</span></span></p> <pre><code class="language-html hljs"></code></pre> <pre class="has"><code class="language-html">//注解开启 swagger2 功能 @EnableSwagger2 //注解标示,这是一个配置类,@Configuation注解包含了@Component注解 //可以不用在使用@Component注解标记这是个bean了 @Configuration @EnableWebMvc public class Swagger2Config implements WebMvcConfigurer {     @Value("${base.location}")//项目初始目录  一般就是自己springboot启动类的包名      private String baseLocation;      /**      * 将Swagger2 的swagger-ui.html加入资源路径下,否则Swagger2静态页面不能访问。要想使资源能够访问，可以有两种方法      * 一：需要配置类继承WebMvcConfigurationSupport 类，实现addResourceHandlers方法。      *      但是实现了WebMvcConfigurationSupport以后，Spring Boot的 WebMvc自动配置就会失效，具体表现比如访问不到      *      静态资源（js，css等）了，这是因为WebMvc的自动配置都在WebMvcAutoConfiguration类中，但是类中有这个注解      *      @ConditionalOnMissingBean({WebMvcConfigurationSupport.class})，意思是一旦在容器中检测到      *      WebMvcConfigurationSupport这个类，WebMvcAutoConfiguration类中的配置都不生效。      *      所以一旦我们自己写的配置类继承了WebMvcConfigurationSupport，相当于容器中已经有了WebMvcConfigurationSupport，      *      所有默认配置都不会生效，都得自己在配置文件中配置。      * 二：继承WebMvcConfigurer接口，这里采用此方法 网上有人说使用该方法会导致date编译等问题，可能在配置文件中得到解决，      *      本人没有碰到，不多做解释      * @param registry      */     @Override     public void addResourceHandlers(ResourceHandlerRegistry registry) {         registry.addResourceHandler("swagger-ui.html")                 .addResourceLocations("classpath:/META-INF/resources/");          registry.addResourceHandler("/webjars/**")                 .addResourceLocations("classpath:/META-INF/resources/webjars/");     }      /**      * 通过 createRestApi函数来构建一个DocketBean      * 函数名,可以随意命名,喜欢什么命名就什么命名      * 接口文档默认访问路径http://localhost:8080/swagger-ui.html，      *          配置文件中有配置此处为http://localhost:8080/springboot2/swagger-ui.html      * 注解说明参考博客：https://blog.csdn.net/qq_28009065/article/details/79104103，      */      @Bean     public Docket commonDocket() {         return new Docket(DocumentationType.SWAGGER_2)                 .groupName("通用API接口文档")                 .apiInfo(apiInfo("测试环境通用接口"))                 .pathMapping("/")                 .select()                 .apis(RequestHandlerSelectors.basePackage(baseLocation+".web.controller"))//指向自己的controller即可                 .paths(PathSelectors.any())                 .build();     }     // //    @Bean //    public Docket normalUserDocket() { //        return new Docket(DocumentationType.SWAGGER_2) //                .groupName("普通用户API文档") //                .apiInfo(apiInfo("提供普通用户接口")) //                .protocols(Sets.newHashSet("https","http")) //                .produces(Sets.newHashSet("html/text")) //                .pathMapping("/") //                .select() //                .apis(RequestHandlerSelectors.basePackage(baseLocation+".controller.candidate"))//设置生成的Docket对应的Controller为candidate下的所有Controller //                .paths(PathSelectors.any()) //                .build(); //    } // //    @Bean //    public Docket companyUserDocket() { //        return new Docket(DocumentationType.SWAGGER_2) //                .groupName("企业用户API接口文档") //                .apiInfo(apiInfo("提供企业用户接口")) //                .pathMapping("/") //                .select() //                .apis(RequestHandlerSelectors.basePackage(baseLocation+".controller.company")) //                .paths(PathSelectors.any()) //                .build(); //    } //设置文档信息     private ApiInfo apiInfo(String desc) {         return new ApiInfoBuilder()                 //页面标题                 .title(desc)                 //设置作者联系方式,可有可无                 .contact(new Contact("chaoge", "https://my.csdn.net/xiaochaogge", "z28126308@163.com"))                 //版本号                 .version("1.0")                 //描述                 .description("API 描述")                 .build();      } }  /*     Docket类的方法：     Docket groupName(String var):设置栏目名      Docket apiInfo(ApiInfo apiInfo):设置文档信息      Docket pathMapping(String path):设置api根路径      Docket protocols(Set&lt;String&gt; protocols):设置协议，Sets为com.goolge.common下的类，Sets.newHashSet("https","http")相当于new HashSet(){<!-- -->{add("https");add("http");}};      ApiSelectorBuilder select():初始化并返回一个API选择构造器        ApiSelectorBuilder类的方法：      ApiSelectorBuilder apis(Predicate&lt;RequestHandler&gt; selector):添加选择条件并返回添加后的ApiSelectorBuilder对象      ApiSelectorBuilder paths(Predicate&lt;String&gt; selector):设置路径筛选，该方法中含一句pathSelector = and(pathSelector, selector);表明条件为相与        RequestHandlerSelectors类的方法：      Predicate&lt;RequestHandler&gt; any()：返回包含所有满足条件的请求处理器的断言，该断言总为true      Predicate&lt;RequestHandler&gt; none()：返回不满足条件的请求处理器的断言,该断言总为false      Predicate&lt;RequestHandler&gt; basePackage(final String basePackage)：返回一个断言(Predicate)，该断言包含所有匹配basePackage下所有类的请求路径的请求处理器        PathSelectors类的方法：      Predicate&lt;String&gt; any():满足条件的路径，该断言总为true      Predicate&lt;String&gt; none():不满足条件的路径,该断言总为false      Predicate&lt;String&gt; regex(final String pathRegex):符合正则的路径    设置swagger-ui.html默认路径，servlet的配置文件添加:      &lt;mvc:annotation-driven&gt;&lt;/mvc:annotation-driven&gt;     &lt;mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars"/&gt;      swagger-ui.html位于springfox-swagger-ui jar包中的META-INF/resources/目录下，项目编译后swagger-ui.html将添加到classpath的/META-INF/resources/下，所以添加mapping="/webjars/**" 可通过localhost:端口号/项目名/swagger-ui.html打开SwaggerUI  常用注解:      Swagger所有注解并非必须，若不加就只显示类目/方法名/参数名没有注释而已，但若注解中含@ApiParam不对应@RequestParam将无效果      @Api:注解controller，value为@RequestMapping路径      @ApiOperation:注解方法，value为简要描述,notes为全面描述,hidden=true Swagger将不显示该方法，默认为false      @ApiParam:注解参数,hidden=true Swagger参数列表将不显示该参数,name对应参数名，value为注释，defaultValue设置默认值,allowableValues设置范围值,required设置参数是否必须，默认为false      @ApiModel:注解Model      @ApiModelProperty:注解Model下的属性，当前端传过来的是一个对象时swagger中该对象的属性注解就是ApiModelProperty中的value      @ApiIgnore:注解类、参数、方法，注解后将不在Swagger UI中显示   */</code></pre> <p>在application.properties中（网上有人可能出现的date格式错误等问题，笔者目前还没有出现此类问题，但是也贴出有关的配置供参考）</p> <pre class="has"><code class="language-html">spring.jackson.serialization.indent_output=true spring.jackson.serialization.write-dates-as-timestamps=true spring.http.converters.preferred-json-mapper=jackson #设置时区 spring.jackson.time-zone=GMT+8 spring.jackson.date-format=yyyy-MM-dd HH:mm:ss spring.jackson.joda-date-time-format=yyyy-MM-dd HH:mm:ss</code></pre> <p>新建WebMVCCongig.java类实现WebMvcConfigurer接口（没有这步操作Swagger2已经可以使用）设置跨域请求</p> <pre class="has"><code class="language-html">@Configuration public class WebMVCConfig implements WebMvcConfigurer {      @Override     public void addResourceHandlers(ResourceHandlerRegistry registry){         registry.addResourceHandler("/static/**")                 .addResourceLocations("classpath:/static/");     }      @Override     public void addCorsMappings(CorsRegistry registry) {         registry.addMapping("/**")//设置允许跨域的路径                 .allowedOrigins("*")//设置允许跨域请求的域名                 .allowCredentials(true)//是否允许证书 不再默认开启                 .allowedMethods("GET", "POST", "PUT", "DELETE")//设置允许的方法                 .maxAge(3600);//跨域允许时间     } }</code></pre> <p>三、在controller类中</p> <pre class="has"><code class="language-html">@CrossOrigin @RestController @RequestMapping("/test") @Api(tags="测试类",value="测试类") public class TestController {     @ApiOperation(value="【PC端】提交订单", notes="提交一组识别的标签id，返回生成的订单详情")     @RequestMapping(value = "/test/{id}", method = RequestMethod.POST, produces  = "application/json;charset=UTF-8")     public Integer test(@PathVariable Integer id){         System.out.println(id);         return id;     } }</code></pre> <p>四、效果图</p> <p><img decoding="async" alt="" class="has" src="http://img.555519.xyz/uploads3/20220903/c848eea28bb307623f7c0c8c367c897b.jpg"></p> <p>以上仅供参考，如果各位遇到其他问题也欢迎互相探讨</p> </div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-71668.htm">聊城宠物狗商家有哪些店（在聊城有最大的宠物店吗）</a></p>
+                                        <p>下一个：<a href="/news/article-72317.htm">JavaCV的摄像头实战之七：推流(带声音)</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-36616.htm" title="串联字符串的Java程序。">串联字符串的Java程序。</a></li>
+                        <li class="py-2"><a href="/news/article-70999.htm" title="【小程序】微信小程序自定义导航栏及其封装">【小程序】微信小程序自定义导航栏及其封装</a></li>
+                        <li class="py-2"><a href="/news/article-58141.htm" title="动物疫苗监管严格还是药品监管严格 动物疫苗监管严格还是药品监管严格呢">动物疫苗监管严格还是药品监管严格 动物疫苗监管严格还是药品监管严格呢</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-12-quantumult-x-node-windows.htm" title="1月12日→19.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月12日→19.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-46006.htm" title="动物疫苗价格查询表图片高清大全 动物疫苗价格查询表图片高清大全集">动物疫苗价格查询表图片高清大全 动物疫苗价格查询表图片高清大全集</a></li>
+                        <li class="py-2"><a href="/news/article-44030.htm" title="可以使用哪个MySQL函数找出字符串的长度（以位为单位）？">可以使用哪个MySQL函数找出字符串的长度（以位为单位）？</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-11-latest-quantumult-x-node.htm" title="1月11日→21.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月11日→21.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-quantumult-x-node-github.htm" title="3月6日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月6日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-45022.htm" title="妙三多猫疫苗的不良反应（妙三多猫疫苗失效什么样子）">妙三多猫疫苗的不良反应（妙三多猫疫苗失效什么样子）</a></li>
+                        <li class="py-2"><a href="/news/article-66491.htm" title="动物打完疫苗多久可以测抗体呢 动物打完疫苗多久可以测抗体呢">动物打完疫苗多久可以测抗体呢 动物打完疫苗多久可以测抗体呢</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">42</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
