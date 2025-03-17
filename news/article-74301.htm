@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-74301.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>一文了解axios和vue的整合操作_vue.js</title>
+        <meta name="description" content="目录  前言 一、axios是什么？  1.定义 2.原理 3、主要特点  二、axios的应用  三、axios+vue的应用  总结     前言 前面学习了vue的本地应用操作，本文将会学习Vu" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-74301.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="一文了解axios和vue的整合操作_vue.js" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/1513c6f04231f0acd85350eb03da01d6.webp" />
+        <meta property="og:release_date" content="2025-03-15T07:20:28" />
+    <meta property="og:updated_time" content="2025-03-15T07:20:28" />
+        <meta property="og:description" content="目录  前言 一、axios是什么？  1.定义 2.原理 3、主要特点  二、axios的应用  三、axios+vue的应用  总结     前言 前面学习了vue的本地应用操作，本文将会学习Vu" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="一文了解axios和vue的整合操作_vue.js">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>一文了解axios和vue的整合操作_vue.js</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">前言</a></li> <li><a href="#_label1" rel="nofollow">一、axios是什么？</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">1.定义</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.原理</a></li> <li><a href="#_lab2_1_2" rel="nofollow">3、主要特点</a></li> </ul> <li><a href="#_label2" rel="nofollow">二、axios的应用</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label3" rel="nofollow">三、axios+vue的应用</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">总结</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>前言</h2> <p>前面学习了vue的本地应用操作，本文将会学习Vue的网络应用，介绍axios并且学习axios和Vue的结合使用</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>一、axios是什么？</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>1.定义</h3> <p>Axios是一个基于promise 的 HTTP 库，可以用在浏览器和 node.js中</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.原理</h3> <p>axios本质上也是对原生XHR的封装，只不过它是Promise的实现版本，符合最新的ES规范。</p> <p class="maodian"><a name="_lab2_1_2" rel="nofollow"></a></p> <h3>3、主要特点</h3> <p>1、从 node.js 创建 http 请求</p> <p>2、支持 Promise API</p> <p>3、拦截请求和响应</p> <p>4、转换请求和响应数据</p> <p>5、取消请求</p> <p>6、自动转换JSON数据</p> <p>7、客户端支持防御XSRF要特点</p> <p>8、从浏览器创建 XMLHttpRequests</p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>二、axios的应用</h2> <p>1、axios必须先导入才可以使用</p> <p>2、使用get或Post方法即可发送对应的请求</p> <p>3、then方法中的回调函数会在请求成功或失败时触发</p> <p>4、通过回调函数的形参可以获取响应内容，或错误信息</p> <p><strong>代码解析</strong></p> <p>1、axios通过get或者post发送请求</p> <p>2、axios.get()中间填写获取的请求地址，后面跟上请求的参数使用？连接</p> <p>3、.then（）代表的是成功获取到后，如何处理的事件和获取失败，该如何处理的事件</p> <p>两个事件中间用逗号隔开</p> <div class="ay1code"> <pre class="brush:js;">&lt;input type="button" value="get请求" class="get"&gt;      &lt;input type="button" value="post请求" class="post"&gt;      &lt;!--官网提供的axios在线地址--&gt;      &lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;      &lt;script&gt;          /*           接口1:随机笑话           请求地址:https://autumnfish.cn/api/joke/list           请求方法:get           请求参数:num(笑话条数,数字)           响应内容:随机笑话       */          document.querySelector(".get").onclick=function (){              axios.get("https://autumnfish.cn/api/joke/list?num=3")              .then(function (response){                  console.log(response);              },function (err){                  console.log(err);              })          }            /*              接口2:用户注册              请求地址:https://autumnfish.cn/api/user/reg              请求方法:post              请求参数:username(用户名,字符串)              响应内容:注册成功或失败          */          document.querySelector(".post").onclick=function(){              axios.post("https://autumnfish.cn/api/user/reg",{username:"李奕赫"}).then(function (response){                  console.log(response);              },function (err){                  console.log(err);              })          }      &lt;/script&gt;  </pre> </div> <p><strong>效果展示：</strong></p> <p>按下按钮后，会在控制台里，将回应值全部打印出来</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220427/c00d706af90f65c88112f118b3f9a0cf.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>三、axios+vue的应用</h2> <p>1、axios回调函数中的this已经改变，无法访问到data中数据</p> <p>2、把this保存起来，回调函数中直接使用保存的this即可‘</p> <p>3、和本地应用的最大区别就是改变了数据来源</p> <p>代码展示：</p> <p>1、这次将axios和vue相结合，改变了数据来源</p> <p>2、可以将axios在网络上获取的信息，通过vue展示出来</p> <p>3、axios的操作跟上面没区别，就是放在vue的一个事件中。</p> <p>4、因为返回的回应值很多，我们仅仅只想找到我们想要的。我们就可以直接写。<br />例如：response.data 我们可以直接下面套着写</p> <div class="ay1code"> <pre class="brush:js;">    &lt;div id="app"&gt;          &lt;input type="button" value="获取笑话" @click="getJoke"&gt;          &lt;p&gt;{{joke}}&lt;/p&gt;      &lt;/div&gt;        &lt;!-- 开发环境版本，包含了有帮助的命令行警告 --&gt;      &lt;script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"&gt;&lt;/script&gt;      &lt;!--官网提供的axios在线地址--&gt;      &lt;script src="https://unpkg.com/axios/dist/axios.min.js"&gt;&lt;/script&gt;      &lt;script&gt;          /*           接口1:随机笑话           请求地址:https://autumnfish.cn/api/joke/list           请求方法:get           请求参数:num(笑话条数,数字)           响应内容:随机笑话       */          var app=new Vue({              el:"#app",              data:{                  joke:"很好笑的笑话"              },              methods:{                  getJoke:function (){                      var that=this;                      axios.get("https://autumnfish.cn/api/joke").then(function (response){                          console.log(response.data)                          that.joke=response.data;   /*这里不能使用this.joke，因为对象已经发生改变*/                      },function (err){ })                  }              },          })      &lt;/script&gt;</pre> </div> <p><strong>效果展示：</strong></p> <p>1、当按下按钮时,就触发事件。</p> <p>2、因为vue是基于数据开发，数据发生改变，页面上的显示也会随之改变</p> <p>3、当触发事件后，我们将axios获取的数据赋值给vue中的变量，所以当变量改变，页面上的笑话也会改变。</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220427/ef80836d35fb5250f6acb26934b40ee7.jpg"></p> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>总结</h2> <p>本文介绍了axios和vue的简单整合实验，大家可以亲自实践操作一下！！</p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-73649.htm">动物疫苗接种间隔时间是多久（动物疫苗一针多少钱）</a></p>
+                                        <p>下一个：<a href="/news/article-74302.htm">狗粮利润多少（狗粮成本）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-45535.htm" title="领养宠物合同协议书怎么写模板范文（领养宠物的协议书）">领养宠物合同协议书怎么写模板范文（领养宠物的协议书）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-2-12-quantumult-x-node-share.htm" title="2月12日→18.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月12日→18.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-29-free-high-speed-nodes.htm" title="1月29日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月29日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-31-free-node-subscribe.htm" title="1月31日→22.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月31日→22.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-5-node-share-links.htm" title="1月5日→21.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月5日→21.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-6-quantumult-x-node-github.htm" title="3月6日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月6日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-70340.htm" title="广州宠物领养中心具体地址电话号码（广州市宠物领养中心）">广州宠物领养中心具体地址电话号码（广州市宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-36211.htm" title="SSM框架中实现数据库操作-从零学习SSM框架（3）">SSM框架中实现数据库操作-从零学习SSM框架（3）</a></li>
+                        <li class="py-2"><a href="/news/article-37590.htm" title="2021国考公务员考试报名时间是多少（2021年国考公务员报名截止时间）">2021国考公务员考试报名时间是多少（2021年国考公务员报名截止时间）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-1-25-node-share-links.htm" title="1月25日→21.3M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月25日→21.3M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">51</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">84</span> <a href="/date/2025-02/" title="2025-02 归档">2025-02</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">83</span> <a href="/date/2025-01/" title="2025-01 归档">2025-01</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
