@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-86824.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>JavaScript如何使用标准数组值对数组进行排序或排列</title>
+        <meta name="description" content="我们需要对动态JavaScript数组进行排序。条件是我们需要根据在标准预定义数组中以特定顺序存储的值对它进行排序。 假设以下是我们的动态数组- const&nbsp;dbArray&nbsp;=&n" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-86824.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="JavaScript如何使用标准数组值对数组进行排序或排列" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/ffa83c340a1cf781855561acfa9d909f.webp" />
+        <meta property="og:release_date" content="2025-04-02T07:44:40" />
+    <meta property="og:updated_time" content="2025-04-02T07:44:40" />
+        <meta property="og:description" content="我们需要对动态JavaScript数组进行排序。条件是我们需要根据在标准预定义数组中以特定顺序存储的值对它进行排序。 假设以下是我们的动态数组- const&nbsp;dbArray&nbsp;=&n" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="JavaScript如何使用标准数组值对数组进行排序或排列">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>JavaScript如何使用标准数组值对数组进行排序或排列</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>我们需要对动态JavaScript数组进行排序。条件是我们需要根据在标准预定义数组中以特定顺序存储的值对它进行排序。</p> <p>假设以下是我们的动态数组-</p> <pre>const&nbsp;dbArray&nbsp;=&nbsp;['Apple','Banana','Mango','Apple','Mango','Mango','Apple'];</pre> <p>并假设我们必须对上述数组进行排序的标准数组如下所示：</p> <pre>const&nbsp;stdArray&nbsp;=&nbsp;['Mango','Apple','Banana','Grapes'];</pre> <p>因此，在对dbArray进行排序之后，我得到的数组应该类似于-</p> <pre>const&nbsp;resultArray&nbsp;=&nbsp;['Mango','Mango','Mango','Apple','Apple','Apple','Banana'];</pre> <h2>示例</h2> <p>以下是代码-</p> <pre>const&nbsp;dbArray&nbsp;= ['Apple','Banana','Mango','Apple','Mango','Mango','Apple']; const&nbsp;stdArray&nbsp;=&nbsp;['Mango','Apple','Banana','Grapes']; const&nbsp;sortByRef&nbsp;=&nbsp;(arr,&nbsp;ref)&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;const&nbsp;sorter&nbsp;=&nbsp;(a,&nbsp;b)&nbsp;=&gt;&nbsp;{ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;ref.indexOf(a)&nbsp;-&nbsp;ref.indexOf(b); &nbsp;&nbsp;&nbsp;}; &nbsp;&nbsp;&nbsp;arr.sort(sorter); }; sortByRef(dbArray,&nbsp;stdArray); console.log(dbArray);</pre> <p>输出结果</p> <p>以下是控制台中的输出-</p> <pre>[ &nbsp;&nbsp;&nbsp;'Mango',&nbsp;&nbsp;'Mango', &nbsp;&nbsp;&nbsp;'Mango',&nbsp;&nbsp;'Apple', &nbsp;&nbsp;&nbsp;'Apple',&nbsp;&nbsp;'Apple', &nbsp;&nbsp;&nbsp;'Banana' ]</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-86121.htm">宠物医院猫咪疫苗驱虫多少钱一次（宠物医院猫咪驱虫价格）</a></p>
+                                        <p>下一个：<a href="/news/article-86825.htm">附近免费领养小狗在哪里（附近哪里可以领养宠物）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-72314.htm" title="Springboot2 集成Swagger2，解决配置完成后不显示的坑">Springboot2 集成Swagger2，解决配置完成后不显示的坑</a></li>
+                        <li class="py-2"><a href="/news/article-75672.htm" title="动物疫苗批号查询网站官网首页（动物疫苗批准文号）">动物疫苗批号查询网站官网首页（动物疫苗批准文号）</a></li>
+                        <li class="py-2"><a href="/news/article-72317.htm" title="JavaCV的摄像头实战之七：推流(带声音)">JavaCV的摄像头实战之七：推流(带声音)</a></li>
+                        <li class="py-2"><a href="/news/article-66490.htm" title="本人长期上门回收宠物猫 本人长期上门回收宠物猫电话">本人长期上门回收宠物猫 本人长期上门回收宠物猫电话</a></li>
+                        <li class="py-2"><a href="/news/article-75673.htm" title="动物疫苗的使用方法有哪些种类及作用（动物疫苗的使用方法有哪些种类及作用图片）">动物疫苗的使用方法有哪些种类及作用（动物疫苗的使用方法有哪些种类及作用图片）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-5-quantumult-x-node.htm" title="3月5日→20.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月5日→20.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86824.htm" title="JavaScript如何使用标准数组值对数组进行排序或排列">JavaScript如何使用标准数组值对数组进行排序或排列</a></li>
+                        <li class="py-2"><a href="/news/article-71666.htm" title="python ui框架_PyQt5GUI项目程序框架">python ui框架_PyQt5GUI项目程序框架</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-14-free-quantumult-x-node.htm" title="3月14日→19.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月14日→19.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-13-node-share-links.htm" title="3月13日→21.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月13日→21.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">6</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                            <p>
+                                <a href="/">首页</a> | 
+                                <a href="/free-node/">免费节点</a> | 
+                                <a href="/news/">新闻资讯</a> |
+                                <a href="/about-us.htm">关于我们</a> |
+                                <a href="/disclaimer.htm">免责申明</a> |
+                                <a href="/privacy.htm">隐私申明</a> |
+                                <a href="/sitemap.xml">网站地图</a>
+                            </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
