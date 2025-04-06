@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-88981.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>我们如何更改MySQL AUTO_INCREMENT起始号码？</title>
+        <meta name="description" content="MySQL AUTO_INCREMENT值从1开始，但是我们可以通过以下两种方式进行更改- 借助ALTER TABLE查询 我们可以使用ALTER TABLE查询来更改AUTO_INCREMENT的起" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-88981.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="我们如何更改MySQL AUTO_INCREMENT起始号码？" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/72847df58a6a9bcdf1e7153d5642db52.webp" />
+        <meta property="og:release_date" content="2025-04-05T08:18:57" />
+    <meta property="og:updated_time" content="2025-04-05T08:18:57" />
+        <meta property="og:description" content="MySQL AUTO_INCREMENT值从1开始，但是我们可以通过以下两种方式进行更改- 借助ALTER TABLE查询 我们可以使用ALTER TABLE查询来更改AUTO_INCREMENT的起" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="我们如何更改MySQL AUTO_INCREMENT起始号码？">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>我们如何更改MySQL AUTO_INCREMENT起始号码？</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<p>MySQL AUTO_INCREMENT值从1开始，但是我们可以通过以下两种方式进行更改-</p> <h2>借助ALTER TABLE查询</h2> <p>我们可以使用ALTER TABLE查询来更改AUTO_INCREMENT的起始值，如下所示：</p> <pre>ALTER&nbsp;TABLE&nbsp;table_name&nbsp;AUTO_INCREMENT&nbsp;=&nbsp;value;</pre> <h2>示例</h2> <p>假设我们创建了一个表，其列'id'为AUTO_INCREMENT。现在，如果我们将值插入其中，那么序列号将从1开始，如您在以下查询中看到的那样-</p> <pre>mysql&gt;&nbsp;Create&nbsp;Table&nbsp;EMP(id&nbsp;int&nbsp;NOT&nbsp;NULL&nbsp;PRIMARY&nbsp;KEY&nbsp;AUTO_INCREMENT,&nbsp;NAME&nbsp;VARCHAR(10));  mysql&gt;&nbsp;Insert&nbsp;Into&nbsp;EMP(Name)&nbsp;Values('Aryan');  mysql&gt;&nbsp;Insert&nbsp;Into&nbsp;EMP(Name)&nbsp;Values('Yash');  mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;EMP; +----+-------+ |&nbsp;id&nbsp;|&nbsp;NAME&nbsp;&nbsp;| +----+-------+ |&nbsp;1&nbsp;&nbsp;|&nbsp;Aryan&nbsp;| |&nbsp;2&nbsp;&nbsp;|&nbsp;Yash&nbsp;&nbsp;| +----+-------+ 2&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>现在，如果要在以后更改序列号，则需要使用ALTER TABLE查询来更改AUTO_INCREMENT的值，如下所示：</p> <pre>mysql&gt;&nbsp;Alter&nbsp;table&nbsp;emp&nbsp;auto_increment&nbsp;=&nbsp;10; Records:&nbsp;2&nbsp;Duplicates:&nbsp;0&nbsp;Warnings:&nbsp;0  mysql&gt;&nbsp;Insert&nbsp;Into&nbsp;EMP(Name)&nbsp;Values('Daksh');  mysql&gt;&nbsp;Insert&nbsp;Into&nbsp;EMP(Name)&nbsp;Values('Shayra');  mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;EMP; +----+--------+ |&nbsp;id&nbsp;|&nbsp;NAME&nbsp;&nbsp;&nbsp;| +----+--------+ |&nbsp;1&nbsp;&nbsp;|&nbsp;Aryan&nbsp;&nbsp;| |&nbsp;2&nbsp;&nbsp;|&nbsp;Yash&nbsp;&nbsp;&nbsp;| |&nbsp;10&nbsp;|&nbsp;Daksh&nbsp;&nbsp;| |&nbsp;11&nbsp;|&nbsp;Shayra&nbsp;| +----+--------+ 4&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <p>上面的查询将AUTO_INCREMENT的值更改为10，因此在插入新值之后，我们将从10开始获取序列号。</p> <h2>借助CREATE TABLE查询</h2> <p>我们还可以在创建表时更改AUTO_INCREMENT值。可以通过使用CREATE TABLE查询指定AUTO_INCREMENT的值来完成，如下所示：</p> <pre>CREATE&nbsp;TABLE&nbsp;(Column1&nbsp;INT&nbsp;PRIMARY&nbsp;KEY&nbsp;NOT&nbsp;NULL&nbsp;AUTO_INCREMENT,&nbsp;Column2&nbsp;data&nbsp;type)&nbsp;AUTO_INCREMENT&nbsp;=&nbsp;value;</pre> <h2>示例</h2> <pre>mysql&gt;&nbsp;Create&nbsp;Table&nbsp;EMP1(id&nbsp;INT&nbsp;NOT&nbsp;NULL&nbsp;PRIMARY&nbsp;KEY&nbsp;AUTO_INCREMENT,&nbsp;NAME&nbsp;VARCHAR(10))&nbsp;AUTO_INCREMENT&nbsp;=&nbsp;100;</pre> <p>上面的查询在创建表时将AUTO_INCREMENT的值指定为100。现在，如果我们将值插入其中，那么序列号将从100开始，而不是默认值1，如下所示-</p> <pre>mysql&gt;&nbsp;Insert&nbsp;into&nbsp;emp1(name)&nbsp;values('Sohan');  mysql&gt;&nbsp;Insert&nbsp;into&nbsp;emp1(name)&nbsp;values('Harshit');  mysql&gt;&nbsp;Select&nbsp;*&nbsp;from&nbsp;emp1; +-----+---------+ |&nbsp;id&nbsp;&nbsp;|&nbsp;NAME&nbsp;&nbsp;&nbsp;&nbsp;| +-----+---------+ |&nbsp;100&nbsp;|&nbsp;&nbsp;&nbsp;Sohan&nbsp;| |&nbsp;101&nbsp;|&nbsp;Harshit&nbsp;| +-----+---------+ 2&nbsp;rows&nbsp;in&nbsp;set&nbsp;(0.00&nbsp;sec)</pre> <div></div> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-88298.htm">动物疫苗接种方法有几种类型 动物疫苗接种方法有几种类型的</a></p>
+                                        <p>下一个：<a href="/news/article-88982.htm">中国十大动物疫苗公司排名第一的是（动物疫苗厂家有哪些）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/free-nodes/2025-3-11-free-high-speed-nodes.htm" title="3月11日→20.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月11日→20.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-4-quantumult-x-node-share.htm" title="3月4日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月4日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86120.htm" title="动物疫苗接种方法及注意事项视频教程大全图片（动物疫苗怎么注射）">动物疫苗接种方法及注意事项视频教程大全图片（动物疫苗怎么注射）</a></li>
+                        <li class="py-2"><a href="/news/article-88298.htm" title="动物疫苗接种方法有几种类型 动物疫苗接种方法有几种类型的">动物疫苗接种方法有几种类型 动物疫苗接种方法有几种类型的</a></li>
+                        <li class="py-2"><a href="/news/article-66490.htm" title="本人长期上门回收宠物猫 本人长期上门回收宠物猫电话">本人长期上门回收宠物猫 本人长期上门回收宠物猫电话</a></li>
+                        <li class="py-2"><a href="/news/article-74998.htm" title="延吉动物医院在哪里啊多少钱（延吉市宠物医院）">延吉动物医院在哪里啊多少钱（延吉市宠物医院）</a></li>
+                        <li class="py-2"><a href="/news/article-71668.htm" title="聊城宠物狗商家有哪些店（在聊城有最大的宠物店吗）">聊城宠物狗商家有哪些店（在聊城有最大的宠物店吗）</a></li>
+                        <li class="py-2"><a href="/news/article-69692.htm" title="JAVA多线程之同步容器&amp;并发容器">JAVA多线程之同步容器&amp;并发容器</a></li>
+                        <li class="py-2"><a href="/news/article-88981.htm" title="我们如何更改MySQL AUTO_INCREMENT起始号码？">我们如何更改MySQL AUTO_INCREMENT起始号码？</a></li>
+                        <li class="py-2"><a href="/news/article-89726.htm" title="动物防疫法对人和动物危害严重（动物防疫法法律责任）">动物防疫法对人和动物危害严重（动物防疫法法律责任）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">18</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
