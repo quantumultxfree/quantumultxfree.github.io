@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-95768.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Linux环境下安装MySQL数据库_Mysql</title>
+        <meta name="description" content="目录  1.概述 2.前期准备  2.1下载mysql二进制安装包 2.2导入mysql二进制安装包  3.mysql部署  4.修改mysql密码  5.配置mysql阿里云安全组策略     1." />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-95768.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="Linux环境下安装MySQL数据库_Mysql" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/6d5789d59a9b19de609e1db92be55581.webp" />
+        <meta property="og:release_date" content="2025-04-14T08:03:27" />
+    <meta property="og:updated_time" content="2025-04-14T08:03:27" />
+        <meta property="og:description" content="目录  1.概述 2.前期准备  2.1下载mysql二进制安装包 2.2导入mysql二进制安装包  3.mysql部署  4.修改mysql密码  5.配置mysql阿里云安全组策略     1." />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Linux环境下安装MySQL数据库_Mysql">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>Linux环境下安装MySQL数据库_Mysql</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                  				  				  				<div id="navCategory"> <h5 class="catalogue">目录</h5> <ul class="first_class_ul"> <li><a href="#_label0" rel="nofollow">1.概述</a></li> <li><a href="#_label1" rel="nofollow">2.前期准备</a></li> <ul class="second_class_ul"> <li><a href="#_lab2_1_0" rel="nofollow">2.1下载mysql二进制安装包</a></li> <li><a href="#_lab2_1_1" rel="nofollow">2.2导入mysql二进制安装包</a></li> </ul> <li><a href="#_label2" rel="nofollow">3.mysql部署</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label3" rel="nofollow">4.修改mysql密码</a></li> <ul class="second_class_ul"></ul> <li><a href="#_label4" rel="nofollow">5.配置mysql阿里云安全组策略</a></li> <ul class="second_class_ul"></ul> </ul> </div> <p class="maodian"><a name="_label0" rel="nofollow"></a></p> <h2>1.概述</h2> <p>对于mysql二进制安装，优点是可以安装到任何路径下，灵活性好，一台服务器可以安装多个mysql。缺点是已经编译过，性能不如源码编译得好，不能灵活定制编译参数。如果用户即不想安装最简单却不够灵活的RPM包，又不想安装复杂费时的源码包，那么已编译好的二进制包将是最好的选择，下面让我们来介绍如何在linux系统下安装mysql服务端。</p> <p class="maodian"><a name="_label1" rel="nofollow"></a></p> <h2>2.前期准备</h2> <p class="maodian"><a name="_lab2_1_0" rel="nofollow"></a></p> <h3>2.1下载mysql二进制安装包</h3> <p>mysql官网：<a href="http://www.m6000.cn/wp-content/themes/begin%20lts/inc/go.php?url=https://dev.mysql.com/downloads/mysql/"   target="_blank" rel="nofollow">https://dev.mysql.com/downloads/mysql/</a></p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/fa5542266beb570af496a9f461ce1fa6.jpg"></p> <p>因为我下载的是mysql-8.0.23-linux-glibc2.12-x86_64.tar版本，如果有最新版本，则下载最新版本就好了。</p> <p class="maodian"><a name="_lab2_1_1" rel="nofollow"></a></p> <h3>2.2导入mysql二进制安装包</h3> <p>通过Xftp工具把安装包传输到linux系统package目录去：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/24c9c9d3b3bbc9cdd6748b10722fa6fe.jpg"></p> <p class="maodian"><a name="_label2" rel="nofollow"></a></p> <h2>3.mysql部署</h2> <p>解压mysql安装包</p> <div class="ay1code"> <pre class="brush:bash;">--切换到安装目录  cd /app  --解压xz压缩文件  tar -xvf /app/package/mysql-8.0.23-linux-glibc2.12-x86_64.tar.xz</pre> </div> <p>修改mysql文件夹名称</p> <div class="ay1code"> <pre class="brush:bash;">--把mysql-8.0.23-linux-glibc2.12-x86_64修改为mysql文件夹名称  mv /app/mysql-8.0.23-linux-glibc2.12-x86_64 /app/mysql</pre> </div> <p>创建data目录</p> <div class="ay1code"> <pre class="brush:bash;">--在mysql根目录下创建data目录，用于存放数据  mkdir /app/mysql/data</pre> </div> <p>创建mysql用户组和mysql用户</p> <div class="ay1code"> <pre class="brush:bash;">--创建mysql用户组和mysql用户  groupadd mysql  useradd -g mysql mysql</pre> </div> <p>修改mysql目录权限</p> <div class="ay1code"> <pre class="brush:bash;">--修改mysql目录权限  chown -R mysql.mysql /app/mysql/</pre> </div> <p>初始化数据库</p> <div class="ay1code"> <pre class="brush:bash;">--先切换到mysql安装目录  cd /app/mysql  --初始化数据库  bin/mysqld --initialize --user=mysql --basedir=/app/mysql --datadir=/app/mysql/data</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/ae8fa791fc6cf527ce6a9b51d700bbf9.jpg"></p> <p>配置mysql</p> <div class="ay1code"> <pre class="brush:bash;">--先切换到mysql.support-files目录  cd /app/mysql/support-files  --在mysql/support-files创建文件my-default.cnf  touch my-default.cnf  --复制配置文件到/etc/my.cnf  cp -a ./my-default.cnf /etc/my.cnf  --编辑my.cnf  vim /etc/my.cnf</pre> </div> <p>my.cnf输入如下配置内容：</p> <div class="ay1code"> <pre class="brush:plain;">[client]  port=3306  socket=/tmp/mysql.sock    [mysqld]  port=3306  user=mysql  socket=/tmp/mysql.sock  basedir=/app/mysql  datadir=/app/mysql/data</pre> </div> <p>配置环境变量</p> <div class="ay1code"> <pre class="brush:bash;">--编辑profile文件  vim /etc/profile  --配置mysql环境变量  PATH=/data/mysql/bin:/data/mysql/lib:$PATH  export PATH  --使mysql环境变量生效  source /etc/profile  --看环境变量是否生效  echo $PATH</pre> </div> <p>启动mysql</p> <div class="ay1code"> <pre class="brush:bash;">cd /app/mysql/bin  systemctl start mysqld  or  service mysql start</pre> </div> <p>启动mysql时候可能会遇到如下错误：</p> <blockquote> <p>Failed to start mysqld.service: Unit not found.</p> </blockquote> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/c5b15db58ded1a6015e6498f7db1cb84.jpg"></p> <p>or</p> <blockquote> <p>Starting MySQL.Logging to '/app/mysql/data/dengwu.err'.</p> <p>... ERROR! The server quit without updating PID file (/app/mysql/data/dengwu.pid).</p> </blockquote> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/4a24838590d4f6cfdf6e4aafab4d5c53.jpg"></p> <p>解决方法如下:</p> <div class="ay1code"> <pre class="brush:bash;">--需要安装mariadb-server  yum install -y mariadb-server  --然后启动mariadb服务  systemctl start mariadb.service  --需要的可以添加mariadb服务开机启动  systemctl enable mariadb.service</pre> </div> <blockquote> <p>Job for mariadb.service failed because the control process exited with error code. See "systemctl status mariadb.service" and "journalctl -xe" for details.</p> </blockquote> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/7a57284f17aac2cc6180ff5921aabfe8.jpg"></p> <p>解决方法如下:</p> <div class="ay1code"> <pre class="brush:bash;">chown -R mysql.mysql /app/mysql/</pre> </div> <blockquote> <p>Starting MySQL... ERROR! The server quit without updating PID file (/app/mysql/data/dengwu.pid).</p> </blockquote> <p>解决方法如下:</p> <div class="ay1code"> <pre class="brush:bash;">--查看mysql进程  ps -ef|grep mysqld  --杀死mysql进程  kill -9 mysql进程ID</pre> </div> <p>然后重新启动下mysql：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/89dffa3d2e3b7cfc676e6b2842e6ff3d.jpg"></p> <p class="maodian"><a name="_label3" rel="nofollow"></a></p> <h2>4.修改mysql密码</h2> <p>root用户第一次登录mysql，因为初始密码我们并不知道，一般情况下我们都会重新设置一个新的密码，具体操作如下：</p> <div class="ay1code"> <pre class="brush:bash;">--编辑my.cnf  vim /etc/my.cnf</pre> </div> <p>输入如下命令行：</p> <div class="ay1code"> <pre class="brush:bash;">default_authentication_plugin=mysql_native_password</pre> </div> <p>如果忘记了密码再加上：</p> <div class="ay1code"> <pre class="brush:bash;">--跳过密码验证(等设置了密码就去掉)  skip-grant-tables</pre> </div> <p>然后登录mysql：</p> <div class="ay1code"> <pre class="brush:bash;">--登录mysql  mysql -u root -p</pre> </div> <p>然后输入命令查看mysql用户组：</p> <div class="ay1code"> <pre class="brush:sql;">--查看mysql用户表  select user,host,authentication_string from mysql.user;</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/964f539b9bc66771ff5b853546ba832f.jpg"></p> <p>看看root用户没有开启远程连接权限，如果没有则执行如下命令：</p> <div class="ay1code"> <pre class="brush:sql;">--修改root用户可以远程连接  update mysql.user set host='%' where user='root';</pre> </div> <p>开启远程连接权限后，再来修改root用户密码：</p> <div class="ay1code"> <pre class="brush:sql;">--如果host是localhost则@字符后面是localhost，反之则是%，以host结果为准  --修改加密规则  alter user 'root'@'%' identified by 'qwer1234' password expire never;  --更新一下用户的密码  alter user 'root'@'%' identified with mysql_native_password by 'qwer1234';  --刷新权限  flush privileges;  --修改root用户密码  alter user 'root'@'%' identified by 'qwer1234';</pre> </div> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/d0f8a246475aaab3f777ef73ccd5344c.jpg"></p> <p>如果防火墙开启了，则需要加入允许mysql端口访问权限，具体命令如下：</p> <div class="ay1code"> <pre class="brush:bash;">--允许访问  firewall-cmd --permanent --zone=public --add-port=3306/tcp  --重新加载  firewall-cmd --reload  --查看是否开通访问权限  firewall-cmd --permanent --zone=public --query-port=3306/tcp</pre> </div> <p>然后重新启动mysql：</p> <div class="ay1code"> <pre class="brush:bash;">--重新启动mysql  service mysql restart;</pre> </div> <p class="maodian"><a name="_label4" rel="nofollow"></a></p> <h2>5.配置mysql阿里云安全组策略</h2> <p>登录阿里云-&gt;安全组规则-&gt;访问规则-&gt;入方向-&gt;手动添加如下策略：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/fe82033d6cd37329b992095b04b74f64.jpg"></p> <p>使用Navicat连接成功：</p> <p style="text-align:center"><img decoding="async" alt="" src="http://img.555519.xyz/uploads3/20220420/d7179abbec5dd4b00e8bfefe5e17d547.jpg"></p> 			                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-95765.htm">Spring如何快速上手</a></p>
+                                        <p>下一个：<a href="/news/article-96489.htm">聊一聊Vue3.2中setup语法糖+volar</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-79764.htm" title="宠物店一只猫多少钱沈阳（宠物店一只猫咪的价格）">宠物店一只猫多少钱沈阳（宠物店一只猫咪的价格）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-high-speed-nodes.htm" title="3月10日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月10日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-88297.htm" title="Redis4-缓存过期和删除策略">Redis4-缓存过期和删除策略</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-node-share.htm" title="4月11日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月11日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-82544.htm" title="动物疫苗价格一览表图片高清大全图 动物疫苗价格一览表图片高清大全图库">动物疫苗价格一览表图片高清大全图 动物疫苗价格一览表图片高清大全图库</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-3-node-share.htm" title="3月3日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月3日→21.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-9-quantumult-x-node.htm" title="4月9日→18.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月9日→18.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-28-quantumult-x-node.htm" title="3月28日→21.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月28日→21.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-2-quantumult-x-github.htm" title="4月2日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月2日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-16-node-share-links.htm" title="3月16日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月16日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">45</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
