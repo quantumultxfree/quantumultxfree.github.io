@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-108141.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MVVM中的数据的刷新</title>
+        <meta name="description" content="在我们用MVVM框架做项目，在做到新增、删除等功能的时候，新增和删除成功后就会遇到一个问题，那就是数据的刷新。 怎样做到刷新的呢，其实刷新说白了就是重新查询下数据，只要我们调用一下查询的方法 就可以了" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-108141.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content="MVVM中的数据的刷新" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/2d2f68486d4ce96be8ee1e45dd3a0ff8.webp" />
+        <meta property="og:release_date" content="2025-04-30T09:34:22" />
+    <meta property="og:updated_time" content="2025-04-30T09:34:22" />
+        <meta property="og:description" content="在我们用MVVM框架做项目，在做到新增、删除等功能的时候，新增和删除成功后就会遇到一个问题，那就是数据的刷新。 怎样做到刷新的呢，其实刷新说白了就是重新查询下数据，只要我们调用一下查询的方法 就可以了" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="MVVM中的数据的刷新">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>MVVM中的数据的刷新</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<div id="content_views" class="markdown_views prism-atom-one-dark"> <p>在我们用MVVM框架做项目，在做到新增、删除等功能的时候，新增和删除成功后就会遇到一个问题，那就是数据的刷新。<br /> 怎样做到刷新的呢，其实刷新说白了就是重新查询下数据，只要我们调用一下查询的方法<br /> 就可以了。<br /> 当我删除数据时，因为删除操作和数据查询操作可以在同一个ViewModel中，所以我们在写删除的时候可以直接调用查询方法。<br /> 这是我写的查询方法：</p> <pre><code class="prism language-csharp"><span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">GetAllCommodityBy</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span> 	<span class="token class-name"><span class="token keyword">var</span></span> list <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token keyword">from</span> tbCommodity <span class="token keyword">in</span> myModel<span class="token punctuation">.</span>PW_Commodity                 <span class="token keyword">join</span> tbCommodtyType <span class="token keyword">in</span> myModel<span class="token punctuation">.</span>PW_CommodityType <span class="token keyword">on</span> tbCommodity<span class="token punctuation">.</span>CommodityTypeID equals tbCommodtyType<span class="token punctuation">.</span>CommodityTypeID                 <span class="token keyword">join</span> tbUnit <span class="token keyword">in</span> myModel<span class="token punctuation">.</span>PW_Unit <span class="token keyword">on</span> tbCommodity<span class="token punctuation">.</span>UnitID equals tbUnit<span class="token punctuation">.</span>UnitID                 <span class="token keyword">join</span> tbInventory <span class="token keyword">in</span> myModel<span class="token punctuation">.</span>PW_Inventory <span class="token keyword">on</span> tbCommodity<span class="token punctuation">.</span>InventoryID equals tbInventory<span class="token punctuation">.</span>InventoryID                 <span class="token keyword">select</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CommodityVos</span>                 <span class="token punctuation">{<!-- --></span>                      CommodityID<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>CommodityID<span class="token punctuation">,</span>                      InventoryID<span class="token operator">=</span>tbInventory<span class="token punctuation">.</span>InventoryID<span class="token punctuation">,</span>                      CommodityNumber<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>CommodityNumber<span class="token punctuation">,</span>                      CommodityName<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>CommodityName<span class="token punctuation">,</span>                      CommodityTypeName<span class="token operator">=</span>tbCommodtyType<span class="token punctuation">.</span>CommodityTypeName<span class="token punctuation">,</span>                      UnitName<span class="token operator">=</span>tbUnit<span class="token punctuation">.</span>UnitName<span class="token punctuation">,</span>                      Specification<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>Specification<span class="token punctuation">,</span>                      InventoryFloor<span class="token operator">=</span>tbInventory<span class="token punctuation">.</span>InventoryFloor<span class="token punctuation">,</span>                      TheCurrentInventory<span class="token operator">=</span>tbInventory<span class="token punctuation">.</span>TheCurrentInventory<span class="token punctuation">,</span>                      WhetherGive<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>WhetherGive<span class="token punctuation">,</span>                      WhetherForbidden<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>WhetherForbidden<span class="token punctuation">,</span>                      TheDefaultSetting<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>TheDefaultSetting<span class="token punctuation">,</span>                      BarCode<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>BarCode<span class="token punctuation">,</span>                      Remark<span class="token operator">=</span>tbCommodity<span class="token punctuation">.</span>Remark     <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">ToList</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>     Commodity <span class="token operator">=</span> list<span class="token punctuation">;</span>             <span class="token punctuation">}</span> </code></pre> <p>这是删除后调用查询方法：</p> <pre><code class="prism language-cpp"><span class="token keyword">if</span> <span class="token punctuation">(</span>myModel<span class="token punctuation">.</span><span class="token function">SaveChanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>  <span class="token punctuation">{<!-- --></span>       MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"删除成功"</span><span class="token punctuation">,</span> <span class="token string">"系统提示"</span><span class="token punctuation">,</span> MessageBoxButton<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxImage<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token function">GetAllCommodityBy</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token punctuation">}</span> </code></pre> <p>这是删除前的表格：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/8eeaae9eb291b3c3c5fc4ac00f925b83.jpg" alt="MVVM中的数据的刷新"><br /> 我选择最后一条数据删除<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/32f69dbdf7f94ead5f401c416f9329c4.jpg" alt="MVVM中的数据的刷新"><br /> 当删除成功后点击确定，表格就会刷新了：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/e141a19483a301d92d1a3d57e892bf27.jpg" alt="MVVM中的数据的刷新"><br /> 而新增操作和查询操作不在一个ViewModel怎么办呢，这时候我们就要用到委托了。<br /> 我们在新增的ViewModel中声明一个委托：</p> <pre><code class="prism language-csharp"><span class="token comment">//委托</span>  <span class="token keyword">public</span> <span class="token keyword">delegate</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">LodedSelect</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token keyword">public</span> <span class="token keyword">event</span> <span class="token class-name">LodedSelect</span> LodedCommodity<span class="token punctuation">;</span> </code></pre> <p>然后我们在查询的ViewModel中把查询方法赋值给这个委托：</p> <pre><code class="prism language-csharp"><span class="token keyword">private</span> <span class="token return-type class-name"><span class="token keyword">void</span></span> <span class="token function">AddCommodity</span><span class="token punctuation">(</span><span class="token class-name">Window</span> window<span class="token punctuation">)</span> <span class="token punctuation">{<!-- --></span>                  <span class="token class-name">CommodityAdd</span> addOrCommodityWindow <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token constructor-invocation class-name">CommodityAdd</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token class-name"><span class="token keyword">var</span></span> Commoditys <span class="token operator">=</span> <span class="token punctuation">(</span>addOrCommodityWindow<span class="token punctuation">.</span>DataContext <span class="token keyword">as</span> 			   <span class="token class-name">CommodityAddViewModel</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      Commoditys<span class="token punctuation">.</span>LodedCommodity <span class="token operator">+=</span> GetAllCommodityBy<span class="token punctuation">;</span>      addOrCommodityWindow<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token punctuation">}</span> </code></pre> <p>再然后我们在新增操作中用上这个委托就可以了。</p> <pre><code class="prism language-csharp"><span class="token keyword">if</span> <span class="token punctuation">(</span>myModel<span class="token punctuation">.</span><span class="token function">SaveChanges</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">&gt;</span> <span class="token number">0</span><span class="token punctuation">)</span>  <span class="token punctuation">{<!-- --></span>       MessageBox<span class="token punctuation">.</span><span class="token function">Show</span><span class="token punctuation">(</span><span class="token string">"新增成功"</span><span class="token punctuation">,</span> <span class="token string">"系统提示"</span><span class="token punctuation">,</span> MessageBoxButton<span class="token punctuation">.</span>OK<span class="token punctuation">,</span> MessageBoxImage<span class="token punctuation">.</span>Information<span class="token punctuation">)</span><span class="token punctuation">;</span>       window1<span class="token punctuation">.</span><span class="token function">Close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>       LodedCommodity<span class="token punctuation">?.</span><span class="token function">Invoke</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token punctuation">}</span> </code></pre> <p>在我刚才删除数据的表格上新增一条“榴莲”的数据,<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/8862b5bad96a64da5bb6b0f4446eaccd.jpg" alt="MVVM中的数据的刷新"><br /> 当我点击“确定”后，新增页面关闭并表格刷新：<br /><img decoding="async" src="http://img.555519.xyz/uploads/20230110/591cb832f565510976377b4d41c9bb4c.jpg" alt="MVVM中的数据的刷新"></p> </p></div> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-107325.htm">动物疫苗价格一览表图片高清大全集 动物疫苗价格一览表图片高清大全集下载</a></p>
+                                        <p>下一个：<a href="/news/article-108142.htm">申请宠物诊所向什么部门申请呢（宠物诊所申请条件）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-77721.htm" title="从 jQuery 到 Vue3 的快捷通道_在线工具">从 jQuery 到 Vue3 的快捷通道_在线工具</a></li>
+                        <li class="py-2"><a href="/news/article-86824.htm" title="JavaScript如何使用标准数组值对数组进行排序或排列">JavaScript如何使用标准数组值对数组进行排序或排列</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-24-free-node-subscribe-links.htm" title="4月24日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月24日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-3-10-free-high-speed-nodes.htm" title="3月10日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址">3月10日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-86120.htm" title="动物疫苗接种方法及注意事项视频教程大全图片（动物疫苗怎么注射）">动物疫苗接种方法及注意事项视频教程大全图片（动物疫苗怎么注射）</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-26-quantumult-x-node-windows.htm" title="4月26日→20.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月26日→20.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-10-quantumult-x-github.htm" title="4月10日→21.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月10日→21.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-11-node-share.htm" title="4月11日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月11日→19.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-22-free-node-subscribe-links.htm" title="4月22日→21.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月22日→21.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/news/article-100854.htm" title="合肥宠物领养中心电话号码多少（合肥市宠物领养中心）">合肥宠物领养中心电话号码多少（合肥市宠物领养中心）</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">90</span> <a href="/date/2025-03/" title="2025-03 归档">2025-03</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
