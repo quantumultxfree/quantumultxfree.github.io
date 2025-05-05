@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xml:lang="zh-CN" lang="zh-CN">
+
+<head>
+        <link rel="canonical" href="https://quantumultxfree.github.io/news/article-110672.htm" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>.NET宝藏API之：IHostedService，后台任务执行</title>
+        <meta name="description" content="我们在项目开发的过程中可能会遇到类似后台定时任务的需求，比如消息队列的消费者。 按照.NetF时的开发习惯首先想到的肯定是Windows Service，拜托，都什么年代了还用Windows服务（小声" />
+        <link rel="icon" href="/assets/website/img/quantumultxfree/favicon.ico" type="image/x-icon"/>
+
+    <meta name="author" content="QuantumultX Free免费机场订阅节点官网">
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://quantumultxfree.github.io/news/article-110672.htm" />
+    <meta property="og:site_name" content="QuantumultX Free免费机场订阅节点官网" />
+    <meta property="og:title" content=".NET宝藏API之：IHostedService，后台任务执行" />
+    <meta property="og:image" content="https://quantumultxfree.github.io/uploads/20240920/d7e28614299709dedd04a5335d00e3c7.webp" />
+        <meta property="og:release_date" content="2025-05-03T10:29:18" />
+    <meta property="og:updated_time" content="2025-05-03T10:29:18" />
+        <meta property="og:description" content="我们在项目开发的过程中可能会遇到类似后台定时任务的需求，比如消息队列的消费者。 按照.NetF时的开发习惯首先想到的肯定是Windows Service，拜托，都什么年代了还用Windows服务（小声" />
+        
+    <meta name="applicable-device" content="pc,mobile" />
+    <meta name="renderer" content="webkit" />
+    <meta name="force-rendering" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta name="robots" content="max-image-preview:large" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content=".NET宝藏API之：IHostedService，后台任务执行">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="dns-prefetch" href="https:/www.googletagmanager.com">
+    <link rel="dns-prefetch" href="https://www.googleadservices.com">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com">
+    <link rel="dns-prefetch" href="https://cm.g.doubleclick.net">
+
+    <!-- Bootstrap CSS -->
+    <link href="/assets/website/css/quantumultxfree/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS-->
+    <link href="/assets/website/css/quantumultxfree/font-awesome.min.css" rel="stylesheet">
+    <!-- Line Awesome CSS -->
+    <link href="/assets/website/css/quantumultxfree/line-awesome.min.css" rel="stylesheet">
+    <!-- Animate CSS-->
+    <link href="/assets/website/css/quantumultxfree/animate.css" rel="stylesheet">
+    <!-- Bar Filler CSS -->
+    <link href="/assets/website/css/quantumultxfree/barfiller.css" rel="stylesheet">
+    <!-- Flaticon CSS -->
+    <link href="/assets/website/css/quantumultxfree/flaticon.css" rel="stylesheet">
+    <!-- Owl Carousel CSS -->
+    <link href="/assets/website/css/quantumultxfree/owl.carousel.css" rel="stylesheet">
+    <!-- Style CSS -->
+    <link href="/assets/website/css/quantumultxfree/style.css" rel="stylesheet">
+    <!-- Responsive CSS -->
+    <link href="/assets/website/css/quantumultxfree/responsive.css" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/website/css/G.css" />
+    <!-- jquery -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery-3.5.1.min.js"></script>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-EDZKKMGHSQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-EDZKKMGHSQ');
+</script>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3332997411212854"
+     crossorigin="anonymous"></script>
+</head>
+
+<body data-page="detail">
+        <!-- Pre-Loader -->
+    <div id="loader">
+        <div class="loading">
+            <div class="spinner">
+                <div class="bounce1"></div>
+                <div class="bounce2"></div>
+                <div class="bounce3"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Header Area -->
+    <header class="header-area">
+        <div class="sticky-area">
+            <div class="navigation">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="logo">
+                                <a class="navbar-brand" href="/">
+                                                                <span>QuantumultX Free</span>
+                                                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="main-menu">
+                                <nav class="navbar navbar-expand-lg">
+                                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                        <span class="navbar-toggler-icon"></span>
+                                    </button>
+                                    <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
+                                        <ul class="navbar-nav ml-auto">
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/">首页</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/free-nodes/">免费节点</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/paid-subscribe/">推荐机场</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/client.htm">客户端</a>
+                                            </li>
+                                                                                        <li class="nav-item">
+                                                <a class="nav-link" href="/news/">新闻资讯</a>
+                                            </li>
+                                                                                    </ul>
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Breadcroumb Area -->
+    <div class="breadcroumb-area bread-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcroumb-title">
+                        <h1>.NET宝藏API之：IHostedService，后台任务执行</h1>
+                        <h6><a href="/">首页</a> / <a href="/news/">新闻资讯</a> / 正文</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Section-->
+    <div class="about-area section-padding py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                                    <input type="hidden" id="share-website-info" data-name="" data-url="">
+                <div class="xcblog-blog-detail xcblog-blog-detail-defined">
+                      				  				  				<p>我们在项目开发的过程中可能会遇到类似后台定时任务的需求，比如消息队列的消费者。</p> <p>按照<code>.NetF</code>时的开发习惯首先想到的肯定是<code>Windows Service</code>，拜托，都什么年代了还用<code>Windows服务</code>（小声bb）</p> <p>不用<code>Windows服务</code>这不是还有<code>Quartz</code>之流的包嘛，也不是不行，但是随便一点小需求就上这么重的包，是不是有点大材小用了。</p> <p>除了上面的方案，<code>Task.Run</code>也不失为一个好方法，方便简单，直接在管道：</p> <pre><code>Task.Run(() =&gt; { 	while (true) 	{ 		Console.WriteLine("running"); 		Thread.Sleep(1000); 	} });</code></pre> <p><strong>Ok，搞定</strong></p> <p>嗯......也不是不行，总觉得缺了点什么？难道是优雅？</p> <h3 id="ihostedservice">IHostedService</h3> <p><code>IHostedService</code>微软给的定义如下，大致的意思就是：<strong>定义主机托管对象的方法</strong>。</p> <pre><code>Defines methods for objects that are managed by the host.</code></pre> <p>下面我们就来实现一下：</p> <pre><code>public class WorkService : IHostedService, IDisposable { 	private Timer timer; 	public void Dispose() 	{ 		timer.Dispose(); 	}  	public Task StartAsync(CancellationToken cancellationToken) 	{ 		Console.WriteLine("start"); 		timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(1)); 		return Task.CompletedTask; 	}  	public Task StopAsync(CancellationToken cancellationToken) 	{ 		Console.WriteLine("end"); 		timer?.Change(Timeout.Infinite, 0); 		return Task.CompletedTask; 	}  	private void DoWork(object state) 	{ 		Console.WriteLine("running"); 	} }</code></pre> <p>然后在<code>ConfigureServices</code> 注册：</p> <pre><code>services.AddHostedService&lt;WorkService&gt;();</code></pre> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/85f3d279400804b64429f886c160ccf0.jpg" alt=".NET宝藏API之：IHostedService，后台任务执行"></p> <p>是不是既优雅又<code>so easy</code>。</p> <p>猴：放屁，本来几行代码就能解决的，你这用了这么多行才实现，优雅个屁。</p> <p>别着急，这不是赠送了两个功能嘛：<code>start</code>，<code>end</code>，很划算的啦。</p> <p>猴：我不要这两个功能，我只要执行任务，你这个就是不行。</p> <p>得，不要就不要，微软大大都给你准备好了。</p> <h3 id="backgroundservice">BackgroundService</h3> <p><code>BackgroundService</code>是微软封装的一个<code>IHostedService</code>派生类，顾名思义：<strong>后台服务</strong>嘛，往下看：</p> <pre><code>public class WorkService : BackgroundService { 	protected async override Task ExecuteAsync(CancellationToken stoppingToken) 	{ 		while(!stoppingToken.IsCancellationRequested) 		{ 			Console.WriteLine("running"); 			await Task.Delay(1000, stoppingToken); 		} 	} }</code></pre> <p>还是一样的注册：<code>services.AddHostedService&lt;WorkService&gt;();</code>，运行结果就...还是放一下吧。</p> <p><img decoding="async" src="http://img.555519.xyz/uploads3/20220509/7d17981f46d548e30ae318990a87f316.jpg" alt=".NET宝藏API之：IHostedService，后台任务执行"></p> <p>这下够优雅了吧。</p> <p>猴：那还有更优雅的吗？</p> <p>年轻人，要知足（其实我也不知道了）</p> <p>因为<code>BackgroundService</code> 是<code>IHostedService</code>的派生类，如果你想要使用<code>start</code>和<code>end</code>也是可以的哦。</p> <pre><code>public override Task StartAsync(CancellationToken cancellationToken) { 	Console.WriteLine("start"); 	return base.StartAsync(cancellationToken); }  public override Task StopAsync(CancellationToken cancellationToken) { 	Console.WriteLine("end"); 	return base.StopAsync(cancellationToken); }</code></pre> <p>好了，这期的宝藏<code>API</code>就到这了，下期再见哦，如果有下期的话。</p> 			                </div>
+                <div class="clearfix"></div>
+                <div class="col-md-12 mt-5">
+                                        <p>上一个：<a href="/news/article-109825.htm">分析fastcache和freecache(一)_在线工具</a></p>
+                                        <p>下一个：<a href="/news/article-110674.htm">宠物领养的文案简短（宠物领养说说）</a></p>
+                                    </div>
+                                </div>
+                <div class="col-md-3">
+                    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">热门文章</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2"><a href="/news/article-88982.htm" title="中国十大动物疫苗公司排名第一的是（动物疫苗厂家有哪些）">中国十大动物疫苗公司排名第一的是（动物疫苗厂家有哪些）</a></li>
+                        <li class="py-2"><a href="/news/article-108142.htm" title="申请宠物诊所向什么部门申请呢（宠物诊所申请条件）">申请宠物诊所向什么部门申请呢（宠物诊所申请条件）</a></li>
+                        <li class="py-2"><a href="/news/article-106323.htm" title="宠物医师资格证可以自考吗现在可以考吗（宠物医师资格证可以自考吗现在可以考吗知乎）">宠物医师资格证可以自考吗现在可以考吗（宠物医师资格证可以自考吗现在可以考吗知乎）</a></li>
+                        <li class="py-2"><a href="/news/article-111505.htm" title="学宠物医生上什么专科学校最好（想学宠物医生应该报考什么大学）">学宠物医生上什么专科学校最好（想学宠物医生应该报考什么大学）</a></li>
+                        <li class="py-2"><a href="/news/article-97959.htm" title="全国兽药50强企业名单公示 全国兽药50强企业名单公示最新">全国兽药50强企业名单公示 全国兽药50强企业名单公示最新</a></li>
+                        <li class="py-2"><a href="/news/article-100854.htm" title="合肥宠物领养中心电话号码多少（合肥市宠物领养中心）">合肥宠物领养中心电话号码多少（合肥市宠物领养中心）</a></li>
+                        <li class="py-2"><a href="/news/article-101565.htm" title="学宠物医生报考哪个学校专科最好呢（学宠物医生报考哪个学校专科最好呢）">学宠物医生报考哪个学校专科最好呢（学宠物医生报考哪个学校专科最好呢）</a></li>
+                        <li class="py-2"><a href="/news/article-99414.htm" title="springboot项目 Feign调用时，@RequestBody 接受字符串(String),json字符串多出引号">springboot项目 Feign调用时，@RequestBody 接受字符串(String),json字符串多出引号</a></li>
+                        <li class="py-2"><a href="/news/article-108961.htm" title="Python高级语法之装饰器">Python高级语法之装饰器</a></li>
+                        <li class="py-2"><a href="/free-nodes/2025-4-23-latest-quantumult-x-node.htm" title="4月23日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月23日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                    </ul>
+    </div>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">归纳</h3>
+    </div>
+    <div class="panel-body">
+        <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">13</span> <a href="/date/2025-05/" title="2025-05 归档">2025-05</a></h4>
+            </li>
+                        <li class="py-2">
+                <h4><span class="badge" style="float: right;">89</span> <a href="/date/2025-04/" title="2025-04 归档">2025-04</a></h4>
+            </li>
+                    </ul>
+    </div>
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="footer-bottom">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="copyright-line">
+                                            <p>
+                                                <a href="/">首页</a> |
+                                                <a href="/free-nodes/">免费节点</a> |
+                                                <a href="/paid-subscribe/">推荐机场</a> |
+                                                <a href="/client.htm">客户端</a> |
+                                                <a href="/news/">新闻资讯</a> |
+                                                <a href="/about-us.htm">关于我们</a> |
+                        <a href="/disclaimer.htm">免责申明</a> |
+                        <a href="/privacy.htm">隐私申明</a> |
+                        <a href="/sitemap.xml">网站地图</a>
+                    </p>
+                        <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
+                    </p>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12">
+                    <p class="privacy">Privacy Policy | Terms &amp; Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Scroll Top Area -->
+    <a href="#top" class="go-top"><i class="las la-angle-up"></i></a>
+    <!-- Popper JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/popper.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/bootstrap.min.js"></script>
+    <!-- Wow JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/wow.min.js"></script>
+    <!-- Way Points JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.waypoints.min.js"></script>
+    <!-- Counter Up JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.counterup.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/magnific-popup.min.js"></script>
+    <!-- Sticky JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.sticky.js"></script>
+    <!-- Progress Bar JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/jquery.barfiller.js"></script>
+    <!-- Main JS -->
+    <script src="/assets/website/js/frontend/quantumultxfree/main.js"></script>
+    <script src="https://www.freeclashnode.com/assets/js/frontend/invite-url.js"></script><script src="/assets/website/js/frontend/G.js"></script>
+</body>
+
+</html>
