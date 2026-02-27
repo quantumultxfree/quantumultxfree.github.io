@@ -362,19 +362,24 @@ opkg install v2ray-core
         Sing-box 支持多平台，包括 Windows、Linux、macOS 和 Android。可从官方 GitHub 页面下载预编译版本或通过命令行安装。配置文件采用 JSON 格式，兼容多种协议配置。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组功能有什么作用？</h5></div>
+    <div class="panel-body">
+        节点可按地区、延迟或用途分类，结合策略组自动分流流量。便于管理大量节点，提高访问速度和连接稳定性，同时优化维护效率，方便用户快速选择最优节点。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Hysteria2 如何提升网速？</h5></div>
+    <div class="panel-body">
+        Hysteria2 利用 QUIC 协议的低延迟特性，并通过自适应拥塞控制算法在高丢包网络下维持高速连接。配置合适的带宽参数与 TLS 证书，可显著提升跨境访问速度。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Potatso Lite 支持订阅链接导入吗？</h5></div>
+    <div class="panel-body">
+        Potatso Lite 不支持自动订阅功能，用户需手动添加节点。如果想批量导入订阅，可使用其他客户端生成节点二维码，再手动扫描添加。适合轻量使用者。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>VMess 的 WebSocket + TLS 配置有哪些好处？</h5></div>
     <div class="panel-body">
         WebSocket + TLS 可伪装为普通 HTTPS 流量，增强抗封锁能力和隐蔽性。结合域名伪装和策略组使用，可以在高封锁网络中保持稳定、高速和安全的网络访问体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Shadowrocket 能否自动更新订阅？</h5></div>
-    <div class="panel-body">
-        支持。Shadowrocket 可以设置定时更新周期，例如每隔 12 小时或每天自动刷新订阅链接，确保节点列表保持最新状态。这样无需手动更新即可长期稳定使用。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Netch 的 UDP 转发如何配置？</h5></div>
-    <div class="panel-body">
-        Netch 可在客户端设置 UDP 转发开关，选择需要代理的 UDP 流量端口或应用。适用于游戏、语音或实时视频，确保这些应用在代理环境下低延迟且稳定。<hr />    </div>
 </div>
 <div class="panel panel-default">
     <div class="panel-heading"><h5>VMess AEAD 加密在高封锁网络中有何优势？</h5></div>
@@ -387,24 +392,19 @@ opkg install v2ray-core
         策略组会根据节点延迟和丢包率自动选择最优节点。结合路由规则可保证国内流量直连，海外流量走最佳节点，提高访问速度和连接稳定性，优化整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Potatso Lite 支持订阅链接导入吗？</h5></div>
-    <div class="panel-body">
-        Potatso Lite 不支持自动订阅功能，用户需手动添加节点。如果想批量导入订阅，可使用其他客户端生成节点二维码，再手动扫描添加。适合轻量使用者。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组功能有什么作用？</h5></div>
-    <div class="panel-body">
-        节点可按地区、延迟或用途分类，结合策略组自动分流流量。便于管理大量节点，提高访问速度和连接稳定性，同时优化维护效率，方便用户快速选择最优节点。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Hysteria2 如何提升网速？</h5></div>
-    <div class="panel-body">
-        Hysteria2 利用 QUIC 协议的低延迟特性，并通过自适应拥塞控制算法在高丢包网络下维持高速连接。配置合适的带宽参数与 TLS 证书，可显著提升跨境访问速度。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 的订阅更新机制如何运作？</h5></div>
     <div class="panel-body">
-        Nekoray 可以通过远程订阅 URL 自动下载最新节点和规则文件。用户可以设置更新频率，程序会定时检测并替换旧节点，保持配置最新状态。    </div>
+        Nekoray 可以通过远程订阅 URL 自动下载最新节点和规则文件。用户可以设置更新频率，程序会定时检测并替换旧节点，保持配置最新状态。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Shadowrocket 能否自动更新订阅？</h5></div>
+    <div class="panel-body">
+        支持。Shadowrocket 可以设置定时更新周期，例如每隔 12 小时或每天自动刷新订阅链接，确保节点列表保持最新状态。这样无需手动更新即可长期稳定使用。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Netch 的 UDP 转发如何配置？</h5></div>
+    <div class="panel-body">
+        Netch 可在客户端设置 UDP 转发开关，选择需要代理的 UDP 流量端口或应用。适用于游戏、语音或实时视频，确保这些应用在代理环境下低延迟且稳定。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -433,16 +433,16 @@ opkg install v2ray-core
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-2-4-quantumult-x-node-github.htm" title="2月4日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月4日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-3-quantumult-x-node.htm" title="2月3日→18.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月3日→18.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-10-quantumult-x-node-github.htm" title="2月10日→18.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月10日→18.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-21-free-node-subscribe-links.htm" title="2月21日→21.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月21日→21.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-16-free-high-speed-nodes.htm" title="2月16日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月16日→21M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-31-quantumult-x-node.htm" title="1月31日→19.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月31日→19.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-17-free-subscribe-node.htm" title="2月17日→20.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月17日→20.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-25-quantumult-x-node-github.htm" title="1月25日→18M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月25日→18M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-14-free-subscribe-node.htm" title="2月14日→22.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月14日→22.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-27-node-share.htm" title="1月27日→18M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月27日→18M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-15-quantumult-x-node-windows.htm" title="2月15日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月15日→20M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
                         <li class="py-2"><a href="/free-nodes/2026-1-24-quantumult-x-node-windows.htm" title="1月24日→18.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月24日→18.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-1-14-free-node-subscribe-links.htm" title="1月14日→18.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月14日→18.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-18-quantumult-x-node-windows.htm" title="2月18日→20.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月18日→20.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-2-12-free-node-subscribe.htm" title="2月12日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月12日→23M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-29-today-quantumult-x-node.htm" title="1月29日→20.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月29日→20.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-15-free-subscribe-node.htm" title="1月15日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月15日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-1-16-quantumult-x-node-share.htm" title="1月16日→22.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址">1月16日→22.5M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-2-5-node-share.htm" title="2月5日→18.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">2月5日→18.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
                     </ul>
     </div>
 </div>
@@ -454,7 +454,7 @@ opkg install v2ray-core
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">21</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
+                <h4><span class="badge" style="float: right;">26</span> <a href="/date/2026-02/" title="2026-02 归档">2026-02</a></h4>
             </li>
                         <li class="py-2">
                 <h4><span class="badge" style="float: right;">18</span> <a href="/date/2026-01/" title="2026-01 归档">2026-01</a></h4>
