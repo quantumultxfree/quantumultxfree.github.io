@@ -389,31 +389,6 @@ FINAL, Proxy
     </div>
 <h4>FAQ</h4>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>如何用 systemd 管理 V2Ray/ Sing-box 服务？</h5></div>
-    <div class="panel-body">
-        创建 systemd 单元文件，指定 ExecStart 指令并设置 Restart=on-failure 与合适的 User/Group。启用服务并使用 `systemctl enable` 与 `systemctl start` 管理，便于开机自启与日志集中收集。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度？</h5></div>
-    <div class="panel-body">
-        PAC 模式根据规则判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>V2Ray 的 gRPC 模式适合哪些场景？</h5></div>
-    <div class="panel-body">
-        gRPC 支持多路复用和长连接，适合高并发访问和移动网络场景。相比 TCP 或 WebSocket，它可以减少握手次数，降低延迟，同时提高连接稳定性和吞吐量，特别适合游戏或即时通讯。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>PassWall2 如何定时自动更新节点？</h5></div>
-    <div class="panel-body">
-        可在计划任务中添加命令 `passwall update` 并设定时间间隔，例如每日凌晨自动更新。这样可确保节点信息实时同步，避免旧节点失效影响连接体验。<hr />    </div>
-</div>
-<div class="panel panel-default">
-    <div class="panel-heading"><h5>Nekobox 是否支持多客户端节点管理？</h5></div>
-    <div class="panel-body">
-        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>如何在 Android 手机上使用 Clash for Android？</h5></div>
     <div class="panel-body">
         Clash for Android 是专为移动设备开发的客户端，安装后导入订阅链接即可使用。用户可设置代理模式（全局、规则、自定义）并查看实时流量信息。它的电量消耗较低，适合长期后台运行。<hr />    </div>
@@ -424,19 +399,44 @@ FINAL, Proxy
         Reality 模式通过伪造握手和真实网站特征提升隐蔽性，TLS 模式侧重加密和传输效率。Reality 更难被 DPI 检测，适合高封锁环境，TLS 模式在稳定性和速度上更优。<hr />    </div>
 </div>
 <div class="panel panel-default">
-    <div class="panel-heading"><h5>Mihomo 节点分组功能有什么优势？</h5></div>
-    <div class="panel-body">
-        分组管理可按延迟、地区或用途分类节点，并结合策略组实现自动分流。用户可快速选择最优节点，提高访问速度和稳定性，方便管理大量节点并优化维护效率。<hr />    </div>
-</div>
-<div class="panel panel-default">
     <div class="panel-heading"><h5>Shadowrocket 的节点测速如何优化连接？</h5></div>
     <div class="panel-body">
         Shadowrocket 测试节点延迟和丢包率，并根据结果排序策略组节点。延迟低的节点优先使用，可保证网页浏览、视频播放和游戏连接速度和稳定性，提高整体网络体验。<hr />    </div>
 </div>
 <div class="panel panel-default">
+    <div class="panel-heading"><h5>WinXray PAC 模式如何提高访问速度？</h5></div>
+    <div class="panel-body">
+        PAC 模式根据规则判断流量是否走代理，无需手动切换节点。适合访问国内外混合网站，提高访问速度和稳定性，减少误操作导致的访问失败。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Nekobox 是否支持多客户端节点管理？</h5></div>
+    <div class="panel-body">
+        支持。Nekobox 可以独立管理 Shadowsocks、Clash 等客户端节点，互不干扰。结合策略组，可实现多客户端流量分流和网络优化，提高节点管理效率和使用便利性。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>PassWall2 如何定时自动更新节点？</h5></div>
+    <div class="panel-body">
+        可在计划任务中添加命令 `passwall update` 并设定时间间隔，例如每日凌晨自动更新。这样可确保节点信息实时同步，避免旧节点失效影响连接体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>V2Ray 的 gRPC 模式适合哪些场景？</h5></div>
+    <div class="panel-body">
+        gRPC 支持多路复用和长连接，适合高并发访问和移动网络场景。相比 TCP 或 WebSocket，它可以减少握手次数，降低延迟，同时提高连接稳定性和吞吐量，特别适合游戏或即时通讯。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>如何用 systemd 管理 V2Ray/ Sing-box 服务？</h5></div>
+    <div class="panel-body">
+        创建 systemd 单元文件，指定 ExecStart 指令并设置 Restart=on-failure 与合适的 User/Group。启用服务并使用 `systemctl enable` 与 `systemctl start` 管理，便于开机自启与日志集中收集。<hr />    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading"><h5>Nekoray 节点订阅更新失败怎么办？</h5></div>
     <div class="panel-body">
-        首先检查订阅 URL 是否有效，再确认网络是否通畅。必要时可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组可保证稳定连接和科学上网体验。    </div>
+        首先检查订阅 URL 是否有效，再确认网络是否通畅。必要时可手动刷新或重新添加订阅链接，保证节点列表最新。结合策略组可保证稳定连接和科学上网体验。<hr />    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading"><h5>Mihomo 节点分组功能有什么优势？</h5></div>
+    <div class="panel-body">
+        分组管理可按延迟、地区或用途分类节点，并结合策略组实现自动分流。用户可快速选择最优节点，提高访问速度和稳定性，方便管理大量节点并优化维护效率。    </div>
 </div>
 <div class="panel panel-default mt-5">
     <div class="panel-heading">
@@ -459,22 +459,43 @@ FINAL, Proxy
 </div>
                 </div>
                 <div class="col-md-3">
-                    <div class="panel panel-default">
+                    <div class="panel panel-default box right-ad-box">
+    <div class="panel-heading">
+        <h3 class="panel-title">特别推荐</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="text-center">
+                <a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">
+                    <img src="/assets/website/img/G/luniuyun.webp" class="avatar" alt="绿牛云">
+                </a>
+                <dl>
+                    <dt><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></dt>
+                    <dd>
+                        <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p>                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
     <div class="panel-heading">
         <h3 class="panel-title">热门文章</h3>
     </div>
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
-                        <li class="py-2"><a href="/free-nodes/2026-5-27-free-high-speed-nodes.htm" title="5月27日→18.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月27日→18.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-15-node-share.htm" title="4月15日→21.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月15日→21.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-18-latest-quantumult-x-node.htm" title="5月18日→22M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月18日→22M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-24-quantumult-x-node-windows.htm" title="4月24日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月24日→19.6M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-23-free-high-speed-nodes.htm" title="4月23日→18.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月23日→18.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-17-free-node-subscribe-links.htm" title="4月17日→18.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月17日→18.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-22-quantumult-x-github.htm" title="4月22日→22.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月22日→22.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-25-free-subscribe-node.htm" title="4月25日→18.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月25日→18.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-4-29-free-high-speed-nodes.htm" title="4月29日→22.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">4月29日→22.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
-                        <li class="py-2"><a href="/free-nodes/2026-5-26-latest-quantumult-x-node.htm" title="5月26日→20.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月26日→20.8M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-10-node-share.htm" title="5月10日→19.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月10日→19.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-8-free-quantumult-x-node.htm" title="5月8日→19.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月8日→19.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-15-free-subscribe-node.htm" title="5月15日→20.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月15日→20.1M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-25-free-node-subscribe.htm" title="5月25日→19.3M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月25日→19.3M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-16-latest-quantumult-x-node.htm" title="5月16日→18.2M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月16日→18.2M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-12-free-quantumult-x-node.htm" title="5月12日→20.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月12日→20.9M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-3-free-node-subscribe-links.htm" title="5月3日→19M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月3日→19M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-21-node-share-links.htm" title="5月21日→18.2M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月21日→18.2M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-5-free-node-subscribe.htm" title="5月5日→22M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月5日→22M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
+                        <li class="py-2"><a href="/free-nodes/2026-5-17-free-quantumult-x-node.htm" title="5月17日→20.3M/S|2025年最新免费节点QuantumultX Free订阅链接地址">5月17日→20.3M/S|2025年最新免费节点QuantumultX Free订阅链接地址</a><hr /></li>
                     </ul>
     </div>
 </div>
@@ -486,10 +507,10 @@ FINAL, Proxy
     <div class="panel-body">
         <ul class="p-0 x-0" style="list-style: none;margin: 0;padding: 0;">
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">27</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
+                <h4><span class="badge" style="float: right;">3</span> <a href="/date/2026-06/" title="2026-06 归档">2026-06</a></h4>
             </li>
                         <li class="py-2">
-                <h4><span class="badge" style="float: right;">19</span> <a href="/date/2026-04/" title="2026-04 归档">2026-04</a></h4>
+                <h4><span class="badge" style="float: right;">29</span> <a href="/date/2026-05/" title="2026-05 归档">2026-05</a></h4>
             </li>
                     </ul>
     </div>
@@ -516,6 +537,9 @@ FINAL, Proxy
                         <a href="/privacy.htm">隐私申明</a> |
                         <a href="/sitemap.xml">网站地图</a>
                     </p>
+                                        <div>特别推荐：<b><a href="javascript:;" class="js_to" data-url="https://www.futizi.net/?code=" data-type="Luniuyun" data-code="svvkQf3y" target="_blank">绿牛云</a></b> <p>高速稳定的网络加速</p>
+                        <p>畅享全球内容，访问 ChatGPT、TikTok、Google 等热门网站。
+全平台支持 · 7×24 专业客服 · 采用军工级安全加密传输技术。</p></div>
                                             <a href="/">QuantumultX Free免费机场订阅节点官网</a> 版权所有 Powered by WordPress
                     </p>
                 </div>
