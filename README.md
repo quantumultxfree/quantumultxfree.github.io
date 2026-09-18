@@ -1,4 +1,4 @@
-# 9月11日→20.7M/S|2025年最新免费节点QuantumultX Free订阅链接地址  更新时间 2026-09-11 09:22:34
+# 9月18日→19.4M/S|2025年最新免费节点QuantumultX Free订阅链接地址  更新时间 2026-09-18 10:02:58
 所有免费clash节点都爬取自网络，请勿用于非法用途 。节点地址：<a href="https://quantumultxfree.github.io" target="_blank">点击跳转</a>
 
 ## clash使用教程：
@@ -9,23 +9,23 @@
 
 ### 免费Clash节点订阅链接
 
-- https://quantumultxfree.github.io/uploads/2026/09/0-20260911.yaml
-- https://quantumultxfree.github.io/uploads/2026/09/1-20260911.yaml
-- https://quantumultxfree.github.io/uploads/2026/09/2-20260911.yaml
-- https://quantumultxfree.github.io/uploads/2026/09/3-20260911.yaml
-- https://quantumultxfree.github.io/uploads/2026/09/4-20260911.yaml
+- https://quantumultxfree.github.io/uploads/2026/09/0-20260918.yaml
+- https://quantumultxfree.github.io/uploads/2026/09/1-20260918.yaml
+- https://quantumultxfree.github.io/uploads/2026/09/2-20260918.yaml
+- https://quantumultxfree.github.io/uploads/2026/09/3-20260918.yaml
+- https://quantumultxfree.github.io/uploads/2026/09/4-20260918.yaml
 
 ### 免费V2ray节点订阅链接
 
-- https://quantumultxfree.github.io/uploads/2026/09/0-20260911.txt
-- https://quantumultxfree.github.io/uploads/2026/09/1-20260911.txt
-- https://quantumultxfree.github.io/uploads/2026/09/2-20260911.txt
-- https://quantumultxfree.github.io/uploads/2026/09/3-20260911.txt
-- https://quantumultxfree.github.io/uploads/2026/09/4-20260911.txt
+- https://quantumultxfree.github.io/uploads/2026/09/0-20260918.txt
+- https://quantumultxfree.github.io/uploads/2026/09/1-20260918.txt
+- https://quantumultxfree.github.io/uploads/2026/09/2-20260918.txt
+- https://quantumultxfree.github.io/uploads/2026/09/3-20260918.txt
+- https://quantumultxfree.github.io/uploads/2026/09/4-20260918.txt
 
 ### 免费Sing-box节点订阅链接
 
-- https://quantumultxfree.github.io/uploads/2026/09/20260911.json
+- https://quantumultxfree.github.io/uploads/2026/09/20260918.json
 
 ## 更多Clash节点订阅 ：
 
